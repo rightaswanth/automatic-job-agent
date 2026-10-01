@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Job Agent</title>
+<style>
+  :root {
+    --bg: #f6f7f9; --card: #ffffff; --text: #1a1d23; --muted: #6b7280; --line: #e5e7eb;
+    --accent: #2563eb; --accent-text: #ffffff; --new: #7c3aed;
+    --strong: #15803d; --strong-bg: #dcfce7; --good: #166534; --good-bg: #ecfdf5;
+    --weak: #a16207; --weak-bg: #fef9c3; --poor: #b91c1c; --poor-bg: #fee2e2; --skip: #b91c1c;
+    --chip: #eef2ff; --chip-text: #3730a3; --chip-missing: #f3f4f6; --chip-missing-text: #6b7280;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1115; --card: #171a21; --text: #e5e7eb; --muted: #9ca3af; --line: #262a33;
+      --accent: #3b82f6; --new: #a78bfa;
+      --strong: #4ade80; --strong-bg: #14532d; --good: #86efac; --good-bg: #052e16;
+      --weak: #fde047; --weak-bg: #422006; --poor: #fca5a5; --poor-bg: #450a0a; --skip: #f87171;
+      --chip: #1e1b4b; --chip-text: #c7d2fe; --chip-missing: #1f2430; --chip-missing-text: #9ca3af;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  header { position: sticky; top: 0; z-index: 2; background: var(--card); border-bottom: 1px solid var(--line); padding: 12px 16px; }
+  .bar { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; max-width: 1100px; margin: 0 auto; }
+  .bar h1 { font-size: 18px; margin: 0; }
+  .pill { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; background: var(--line); }
+  .pill.scanning { background: var(--weak-bg); color: var(--weak); }
+  .pill.idle { background: var(--good-bg); color: var(--good); }
+  .pill.error { background: var(--poor-bg); color: var(--poor); }
+  .muted { color: var(--muted); font-size: 13px; }
+  button { cursor: pointer; border: 1px solid var(--line); background: var(--card); color: var(--text); padding: 6px 12px; border-radius: 8px; font: inherit; }
+  button.primary { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
+  button:disabled { opacity: .5; cursor: default; }
+  main { max-width: 1100px; margin: 0 auto; padding: 16px; }
+  .filters { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; margin-bottom: 14px; }
+  .filters label { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; }
+  input[type=number], input[type=search], select { font: inherit; padding: 5px 8px; border: 1px solid var(--line); border-radius: 8px; background: var(--card); color: var(--text); }
+  input[type=search] { min-width: 220px; }
+  .job { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; margin-bottom: 10px; display: grid; grid-template-columns: 74px 1fr; gap: 12px; }
+  .job.skipped { opacity: .75; }
+  .score { text-align: center; border-radius: 10px; padding: 8px 4px; font-weight: 700; font-size: 20px; line-height: 1.1; align-self: start; }
+  .score small { display: block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; }
+  .score.strong { background: var(--strong-bg); color: var(--strong); }
+  .score.good { background: var(--good-bg); color: var(--good); }
+  .score.weak { background: var(--weak-bg); color: var(--weak); }
+  .score.poor { background: var(--poor-bg); color: var(--poor); }
+  .score.none { background: var(--line); color: var(--muted); }
+  .title { font-size: 16px; font-weight: 600; margin: 0; }
+  .title a { color: var(--accent); text-decoration: none; }
+  .title a:hover { text-decoration: underline; }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 1px 7px; border-radius: 6px; margin-left: 6px; vertical-align: middle; }
+  .tag.new { background: var(--new); color: #fff; }
+  .tag.easy { background: var(--chip); color: var(--chip-text); }
+  .tag.skip { background: var(--poor-bg); color: var(--skip); }
+  .meta { margin: 3px 0; color: var(--muted); font-size: 13px; }
+  .notes { font-size: 13px; margin: 3px 0; }
+  .notes.bad { color: var(--skip); }
+  .chips { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 4px; }
+  .chip { font-size: 12px; padding: 1px 8px; border-radius: 999px; background: var(--chip); color: var(--chip-text); }
+  .chip.missing { background: var(--chip-missing); color: var(--chip-missing-text); text-decoration: line-through; }
+  .desc { white-space: pre-wrap; font-size: 13px; margin-top: 8px; padding: 10px; border-radius: 8px; background: var(--bg); max-height: 360px; overflow: auto; }
+  .link { font-size: 12px; color: var(--accent); background: none; border: none; padding: 0; margin-top: 6px; }
+  details { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; margin: 18px 0; }
+  summary { cursor: pointer; font-weight: 600; }
+  textarea { width: 100%; min-height: 260px; font: 13px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; border: 1px solid var(--line); border-radius: 8px; padding: 8px; background: var(--bg); color: var(--text); }
+  table { border-collapse: collapse; width: 100%; font-size: 13px; }
+  th, td { text-align: left; padding: 5px 8px; border-bottom: 1px solid var(--line); }
+  .msg { font-size: 13px; margin-top: 6px; }
+  .msg.ok { color: var(--good); } .msg.err { color: var(--poor); }
+  .empty { color: var(--muted); padding: 24px; text-align: center; }
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <h1>Job Agent</h1>
+    <span id="state" class="pill idle">idle</span>
+    <span id="last" class="muted">no scan yet</span>
+    <span id="next" class="muted"></span>
+    <button id="scanBtn" class="primary" onclick="scanNow()">Scan now</button>
+    <span id="error" class="muted" style="color: var(--poor)"></span>
+  </div>
+</header>
+<main>
+  <div class="filters">
+    <label>Min score <input id="minScore" type="number" min="0" max="100" value="0" style="width: 70px" onchange="loadJobs()"></label>
+    <label><input id="onlyNew" type="checkbox" onchange="loadJobs()"> Only new (latest scan)</label>
+    <label><input id="hideSkipped" type="checkbox" checked onchange="loadJobs()"> Hide skipped (too senior)</label>
+    <input id="q" type="search" placeholder="Search title, company, location" oninput="debouncedLoad()">
+    <span id="count" class="muted"></span>
+  </div>
+  <div id="jobs"></div>
+
+  <details>
+    <summary>Resume profile <span id="profileSummary" class="muted"></span></summary>
+    <p class="muted">Edit and save; the next scan scores with the new profile. Skills are <code>{"Skill name": ["alias", ...]}</code>.</p>
+    <textarea id="profileText" spellcheck="false"></textarea>
+    <div style="margin-top: 8px"><button class="primary" onclick="saveProfile()">Save profile</button> <span id="profileMsg" class="msg"></span></div>
+  </details>
+
+  <details>
+    <summary>Scan history</summary>
+    <table><thead><tr><th>Started</th><th>Took</th><th>Matching</th><th>New</th><th>Notified</th><th>Skipped</th><th>Error</th></tr></thead><tbody id="history"></tbody></table>
+  </details>
+</main>
+
+<script>
+  const $ = (id) => document.getElementById(id);
+  let latestScan = null, nextScanAt = null, loadTimer = null;
+
+  const fmtTime = (iso) => iso ? new Date(iso).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', second: '2-digit'}) : '';
+  const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+  async function api(path, opts) {
+    const res = await fetch(path, opts);
+    const body = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(body.detail || res.statusText);
+    return body;
+  }
+
+  async function refreshStatus() {
+    try {
+      const s = await api('/api/status');
+      const pill = $('state');
+      pill.textContent = s.state === 'scanning' ? 'scanning…' : 'idle';
+      pill.className = 'pill ' + (s.state === 'scanning' ? 'scanning' : 'idle');
+      $('scanBtn').disabled = s.state === 'scanning';
+      nextScanAt = s.next_scan_at ? new Date(s.next_scan_at) : null;
+      $('error').textContent = s.last_error ? 'Last scan failed: ' + s.last_error : '';
+      if (s.last_scan) {
+        const l = s.last_scan;
+        $('last').textContent = `Last scan ${fmtTime(l.finished_at)} · ${l.duration_seconds}s · ${l.matching} matching · ${l.new} new · ${l.notified} notified · ${l.skipped} skipped`;
+        if (l.scan_id !== latestScan) { latestScan = l.scan_id; loadJobs(); loadHistory(); }
+      }
+      const p = s.profile;
+      $('profileSummary').textContent = p.loaded ? `— ${p.name}, ${p.years_experience} yrs (+${p.years_tolerance}), ${p.core_skills} core / ${p.secondary_skills} secondary skills` : `— ${p.error || 'not loaded'}`;
+    } catch (e) {
+      $('state').textContent = 'offline'; $('state').className = 'pill error';
+    }
+  }
+
+  function tickCountdown() {
+    if ($('state').textContent.startsWith('scanning')) { $('next').textContent = 'scanning…'; return; }
+    if (!nextScanAt) { $('next').textContent = ''; return; }
+    const secs = Math.max(0, Math.round((nextScanAt - Date.now()) / 1000));
+    $('next').textContent = `Next scan ${fmtTime(nextScanAt.toISOString())} (in ${Math.floor(secs / 60)}:${String(secs % 60).padStart(2, '0')})`;
+  }
+
+  async function scanNow() {
+    try { await api('/api/scan', {method: 'POST'}); await refreshStatus(); }
+    catch (e) { $('error').textContent = e.message; }
+  }
+
+  function debouncedLoad() { clearTimeout(loadTimer); loadTimer = setTimeout(loadJobs, 250); }
+
+  async function loadJobs() {
+    const params = new URLSearchParams({
+      min_score: $('minScore').value || 0,
+      only_new: $('onlyNew').checked,
+      include_skipped: !$('hideSkipped').checked,
+      q: $('q').value,
+    });
+    const data = await api('/api/jobs?' + params);
+    $('count').textContent = `${data.count} of ${data.total} jobs`;
+    const box = $('jobs');
+    if (!data.jobs.length) { box.innerHTML = '<div class="empty">No jobs match these filters yet. Run a scan or loosen the filters.</div>'; return; }
+    box.innerHTML = data.jobs.map(renderJob).join('');
+  }
+
+  function renderJob(j) {
+    const verdict = j.match_score == null ? 'none' : j.match_verdict;
+    const applicants = j.applicants_text || (j.applicants != null ? j.applicants + ' applicants' : null);
+    const meta = [j.company, j.location, j.workplace_type, j.posted_text ? 'posted ' + j.posted_text : null, applicants, j.job_type, j.salary].filter(Boolean).map(esc).join(' · ');
+    const skipped = j.experience_fit === false;
+    const matched = (j.matched_skills || []).map((s) => `<span class="chip">${esc(s)}</span>`).join('');
+    const missing = (j.missing_skills || []).map((s) => `<span class="chip missing" title="core skill the ad never mentions">${esc(s)}</span>`).join('');
+    return `<div class="job ${skipped ? 'skipped' : ''}" id="job-${esc(j.job_id)}">
+      <div class="score ${verdict}">${j.match_score == null ? '–' : j.match_score + '%'}<small>${j.match_score == null ? 'unscored' : esc(j.match_verdict)}</small></div>
+      <div>
+        <p class="title"><a href="${esc(j.url)}" target="_blank" rel="noopener">${esc(j.title)}</a>
+          ${j.new_in_latest_scan ? '<span class="tag new">NEW</span>' : ''}
+          ${j.easy_apply ? '<span class="tag easy">Easy Apply</span>' : ''}
+          ${skipped ? '<span class="tag skip">too senior</span>' : ''}</p>
+        <p class="meta">${meta}</p>
+        ${j.match_notes ? `<p class="notes ${skipped ? 'bad' : ''}">${esc(j.match_notes)}</p>` : ''}
+        ${(matched || missing) ? `<div class="chips">${matched}${missing}</div>` : ''}
+        <button class="link" onclick="toggleDescription('${esc(j.job_id)}', this)">Show description</button>
+        <div class="desc" id="desc-${esc(j.job_id)}" hidden></div>
+      </div>
+    </div>`;
+  }
+
+  async function toggleDescription(id, btn) {
+    const box = $('desc-' + id);
+    if (!box.hidden) { box.hidden = true; btn.textContent = 'Show description'; return; }
+    if (!box.textContent) {
+      const job = await api('/api/jobs/' + id);
+      box.textContent = job.description || 'No description was fetched for this job (run with details, or it was seen before).';
+    }
+    box.hidden = false; btn.textContent = 'Hide description';
+  }
+
+  async function loadProfile() {
+    const data = await api('/api/profile');
+    $('profileText').value = data.profile ? JSON.stringify(data.profile, null, 2) : '';
+  }
+
+  async function saveProfile() {
+    const msg = $('profileMsg');
+    let parsed;
+    try { parsed = JSON.parse($('profileText').value); }
+    catch (e) { msg.textContent = 'Not valid JSON: ' + e.message; msg.className = 'msg err'; return; }
+    try {
+      const summary = await api('/api/profile', {method: 'PUT', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(parsed)});
+      msg.textContent = `Saved: ${summary.name}, ${summary.years_experience} yrs, ${summary.core_skills} core skills`; msg.className = 'msg ok';
+      refreshStatus();
+    } catch (e) { msg.textContent = e.message; msg.className = 'msg err'; }
+  }
+
+  async function loadHistory() {
+    const rows = await api('/api/scans');
+    $('history').innerHTML = rows.length ? rows.map((r) => `<tr>
+      <td>${fmtTime(r.started_at)}</td><td>${r.duration_seconds != null ? r.duration_seconds + 's' : ''}</td>
+      <td>${r.matching ?? ''}</td><td>${r.new ?? ''}</td><td>${r.notified ?? ''}</td><td>${r.skipped ?? ''}</td>
+      <td style="color: var(--poor)">${esc(r.error || '')}</td></tr>`).join('') : '<tr><td colspan="7" class="muted">No scans yet in this session</td></tr>';
+  }
+
+  refreshStatus(); loadJobs(); loadProfile(); loadHistory();
+  setInterval(refreshStatus, 5000);
+  setInterval(tickCountdown, 1000);
+</script>
+</body>
+</html>

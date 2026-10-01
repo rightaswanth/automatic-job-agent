@@ -1,0 +1,156 @@
+2026-09-29 23:33:17,651 INFO    job_agent: Resume profile: Aswanth P V, 2 yrs, 8 core + 21 secondary skills
+2026-09-29 23:33:17,651 INFO    job_agent: Watching LinkedIn every 300 s (Ctrl+C to stop)
+2026-09-29 23:33:18,665 INFO    app.browser: Browser launched (headless=True, profile=/home/user/Desktop/job-agent/data/browser)
+2026-09-29 23:33:18,667 INFO    app.linkedin: Search criteria: keywords='Python Developer', posted=past 24 hours, experience=Entry Level, Mid Senior Level, under_10_applicants=True, title_any_of=['python', 'fastapi', 'fast api', 'django']
+2026-09-29 23:33:18,667 INFO    app.linkedin: Page 1: https://www.linkedin.com/jobs/search/?keywords=Python+Developer&f_TPR=r86400&f_E=2%2C4&f_EA=true&sortBy=DD
+2026-09-29 23:33:23,368 INFO    app.linkedin: Active filters on page: ['Jobs', 'Most recent', 'Past 24 hours', 'Experience level 2', 'Under 10 applicants']
+2026-09-29 23:33:23,395 INFO    app.linkedin: LinkedIn reports 67 results
+2026-09-29 23:33:31,616 DEBUG   app.linkedin: Skip (title): Sr. Software Dev Engineer, Amazon Freight | Amazon
+2026-09-29 23:33:31,616 DEBUG   app.linkedin: Skip (title): Junior AI Engineer | EvalLoop Jobs
+2026-09-29 23:33:31,616 DEBUG   app.linkedin: Skip (title): Senior Full Stack Developer | ownflow
+2026-09-29 23:33:31,617 DEBUG   app.linkedin: Skip (title): Full Stack Developer | Worksoft
+2026-09-29 23:33:31,617 DEBUG   app.linkedin: Skip (title): Senior Software Development Engineer | Expedia Group
+2026-09-29 23:33:31,617 DEBUG   app.linkedin: Skip (title): Senior Data Engineer | Iris Software Inc.
+2026-09-29 23:33:31,617 DEBUG   app.linkedin: Skip (title): Systems Engr II | Honeywell Technologies
+2026-09-29 23:33:31,617 DEBUG   app.linkedin: Skip (title): Senior Platform Engineer | LSEG
+2026-09-29 23:33:31,617 DEBUG   app.linkedin: Skip (title): Senior Data Engineer | JLL
+2026-09-29 23:33:31,617 DEBUG   app.linkedin: Skip (title): Lead Software Engineer - Angular | Clarivate
+2026-09-29 23:33:31,618 DEBUG   app.linkedin: Skip (title): Senior Data Engineer | OneMagnify
+2026-09-29 23:33:31,618 DEBUG   app.linkedin: Skip (title): Principal AI Engineer | Bristol Myers Squibb
+2026-09-29 23:33:31,618 DEBUG   app.linkedin: Skip (title): Mainframe SRE | Zensar Technologies
+2026-09-29 23:33:31,618 DEBUG   app.linkedin: Skip (title): Relativity Developer | Morae
+2026-09-29 23:33:31,619 DEBUG   app.linkedin: Skip (title): Principal AI & Software Architect / Principal Applied Scientist | LMDmax Corp
+2026-09-29 23:33:31,619 DEBUG   app.linkedin: Skip (title): Software developer | Quest Global
+2026-09-29 23:33:31,619 DEBUG   app.linkedin: Skip (title): Azure Integration Sr Consultant | Birlasoft
+2026-09-29 23:33:31,619 DEBUG   app.linkedin: Skip (title): Senior ML Engineer | Standard Chartered India
+2026-09-29 23:33:31,619 DEBUG   app.linkedin: Skip (title): IoT Software Developer - Device Engineering Team-Husky(India) Guindy, Chennai | Husky Technologies
+2026-09-29 23:33:31,620 DEBUG   app.linkedin: Skip (title): Specialist Software Engineer | NiCE
+2026-09-29 23:33:31,620 DEBUG   app.linkedin: Skip (title): ThingWorx Support Developer | Hitachi Energy
+2026-09-29 23:33:31,620 DEBUG   app.linkedin: Skip (title): Senior Embedded System Engineer | ZOOM Communications
+2026-09-29 23:33:31,620 DEBUG   app.linkedin: Skip (title): Software Engineer Manager (C, C++) | NetApp
+2026-09-29 23:33:31,620 DEBUG   app.linkedin: Skip (title): Senior Sofware Development Lead-R01571578 | Brillio
+2026-09-29 23:33:31,621 DEBUG   app.linkedin: Skip (title): Identity Platform Engineer – Authentication Service | Ford Motor Company
+2026-09-29 23:33:31,621 INFO    app.linkedin: Page 1: 25 cards, 0 title matches, 0 not seen before
+2026-09-29 23:33:33,368 INFO    app.linkedin: Page 2: https://www.linkedin.com/jobs/search/?keywords=Python+Developer&f_TPR=r86400&f_E=2%2C4&f_EA=true&sortBy=DD&start=25
+2026-09-29 23:33:47,461 DEBUG   app.linkedin: Skip (title): Senior Data Engineer | Iris Software Inc.
+2026-09-29 23:33:48,710 INFO    app.linkedin: Match: Lead Software Engineer - Python | Clarivate | India | 36 minutes ago | applicants=4 people clicked apply
+2026-09-29 23:33:48,713 DEBUG   app.linkedin: Skip (title): Specialist Software Engineer | NiCE
+2026-09-29 23:33:48,713 DEBUG   app.linkedin: Skip (title): AV Senior Infrastructure Engineer | Barclays
+2026-09-29 23:33:48,713 DEBUG   app.linkedin: Skip (title): SailPoint IIQ Engineer / IAM Developer (Site Reliability Engineer) | Gurgaon | Hybrid | Immediate Joiner | DigiHelic Solutions Pvt. Ltd.
+2026-09-29 23:33:48,713 DEBUG   app.linkedin: Skip (title): Software Engineer – AI/ML/CV at Brivo | NexisGrow Jobs & Internships
+2026-09-29 23:33:48,713 DEBUG   app.linkedin: Skip (title): Application Consultant-AWS Cloud | IBM
+2026-09-29 23:33:48,714 DEBUG   app.linkedin: Skip (title): DataStage Developer | BNP Paribas
+2026-09-29 23:33:48,714 DEBUG   app.linkedin: Skip (title): Prometheus Engineer | Infosys
+2026-09-29 23:33:48,714 DEBUG   app.linkedin: Skip (title): Software Engineer, Senior B | Blackbaud India
+2026-09-29 23:33:48,714 DEBUG   app.linkedin: Skip (title): Data Engineer (Lead) | NTT DATA North America
+2026-09-29 23:33:48,714 DEBUG   app.linkedin: Skip (title): Senior AI/FDE Engineer | Milestone Technologies, Inc.
+2026-09-29 23:33:48,714 DEBUG   app.linkedin: Skip (title): IN_Senior Associate_Site Reliability Engineering_GCC_Advisory_Bangalore | PwC India
+2026-09-29 23:33:50,928 INFO    app.linkedin: Match: Python Developer | Cloudesign | Bengaluru, Karnataka, India | 5 hours ago | applicants=5 people clicked apply
+2026-09-29 23:33:50,928 DEBUG   app.linkedin: Skip (title): Senior Security MS Engineer - Firewall | NTT DATA, Inc.
+2026-09-29 23:33:50,928 DEBUG   app.linkedin: Skip (title): Sr. BSE - Application Development | Avantor
+2026-09-29 23:33:50,928 DEBUG   app.linkedin: Skip (title): Senior/ Principal Programmer (Macros/Standards) | Veramed
+2026-09-29 23:33:50,928 DEBUG   app.linkedin: Skip (title): Escalation Engineer - DLP | Zscaler
+2026-09-29 23:33:50,929 DEBUG   app.linkedin: Skip (title): Litmus Edge SME - Systems Integration Engineer | Flex
+2026-09-29 23:33:50,929 DEBUG   app.linkedin: Skip (title): Salesforce Vlocity/Comms Cloud Developer | Intellicloud Solutions
+2026-09-29 23:33:52,245 INFO    app.linkedin: Match: Python developer | Softcrayons IT Education | Ghaziabad, Uttar Pradesh, India | 7 hours ago | applicants=0 people clicked apply
+2026-09-29 23:33:52,246 DEBUG   app.linkedin: Skip (title): Rust Programming Engineer (Remote | $150–$300/hr) | Synthires
+2026-09-29 23:33:52,246 DEBUG   app.linkedin: Skip (title): IBM MDM Developer | ZettaMine Labs Pvt. Ltd.
+2026-09-29 23:33:53,309 INFO    app.linkedin: Match: Python Developer (Gen AI) | AI Job Fever | Bengaluru East, Karnataka, India | 17 hours ago | applicants=3 people clicked apply
+2026-09-29 23:33:53,309 DEBUG   app.linkedin: Skip (title): Pncpl Software Engineer | Deltek
+2026-09-29 23:33:53,310 INFO    app.linkedin: Page 2: 25 cards, 4 title matches, 4 not seen before
+2026-09-29 23:33:55,495 INFO    app.linkedin: Page 3: https://www.linkedin.com/jobs/search/?keywords=Python+Developer&f_TPR=r86400&f_E=2%2C4&f_EA=true&sortBy=DD&start=50
+2026-09-29 23:34:05,358 DEBUG   app.linkedin: Skip (title): Gen AI Fullstack - Senior Engineer | Iris Software Inc.
+2026-09-29 23:34:05,358 DEBUG   app.linkedin: Skip (title): Lead Enterprise Applications Engineer | Envestnet
+2026-09-29 23:34:05,358 DEBUG   app.linkedin: Skip (title): Application Consultant-AWS Cloud | IBM
+2026-09-29 23:34:05,359 DEBUG   app.linkedin: Skip (title): Senior Backend Engineer - (NPW) | Milestone Technologies, Inc.
+2026-09-29 23:34:05,359 DEBUG   app.linkedin: Skip (title): IN_Senior Associate_ AI/ML Engineer__GCC_ Advisory _Bangalore | PwC India
+2026-09-29 23:34:06,680 INFO    app.linkedin: Match: Python SDET - Senior Engineer | Iris Software Inc. | Noida, Uttar Pradesh, India | 6 hours ago | applicants=2 people clicked apply
+2026-09-29 23:34:06,681 DEBUG   app.linkedin: Skip (title): Senior/Principal Programmer (R Programmer) | Veramed
+2026-09-29 23:34:08,018 INFO    app.linkedin: Match: Python Developer | Softcrayons IT Education | Ghaziabad, Uttar Pradesh, India | 7 hours ago | applicants=1 person clicked apply
+2026-09-29 23:34:09,276 INFO    app.linkedin: Match: Python Developer | Softcrayons IT Education | Ghaziabad, Uttar Pradesh, India | 7 hours ago | applicants=4 people clicked apply
+2026-09-29 23:34:09,276 DEBUG   app.linkedin: Skip (title): Murex Developer | Persistent Systems
+2026-09-29 23:34:10,930 INFO    app.linkedin: Match: Senior Business Systems Engineer, Metronome - Confluent-Python, RestAPI, Billing | IBM | Bengaluru, Karnataka, India | 9 hours ago | applicants=6 people clicked apply
+2026-09-29 23:34:12,047 INFO    app.linkedin: Match: 7+ yoe python backend developer with agentic ai | any ust location | immediate joiner | JobCrexa | Bengaluru East, Karnataka, India | 19 hours ago | applicants=1 person clicked apply
+2026-09-29 23:34:13,205 INFO    app.linkedin: Match: Sr. python backend developer – fastapi / django / flask + appdynamics | 7+ years | any ust location | immediate joiner | JobCrexa | Bengaluru East, Karnataka, India | 19 hours ago | applicants=0 people clicked apply
+2026-09-29 23:34:14,354 INFO    app.linkedin: Match: Senior Python Engineer | Softcrayons IT Education | Ghaziabad, Uttar Pradesh, India | 19 hours ago | applicants=0 people clicked apply
+2026-09-29 23:34:15,566 INFO    app.linkedin: Match: Python Developer | Softcrayons IT Education | Ghaziabad, Uttar Pradesh, India | 19 hours ago | applicants=1 person clicked apply
+2026-09-29 23:34:15,566 INFO    app.linkedin: Page 3: 15 cards, 8 title matches, 8 not seen before
+2026-09-29 23:34:15,581 INFO    app.linkedin: Done: 12 matching jobs out of 65 cards scanned
+2026-09-29 23:34:15,582 INFO    app.linkedin: Search criteria: keywords='FastAPI Developer', posted=past 24 hours, experience=Entry Level, Mid Senior Level, under_10_applicants=True, title_any_of=['python', 'fastapi', 'fast api', 'django']
+2026-09-29 23:34:15,582 INFO    app.linkedin: Page 1: https://www.linkedin.com/jobs/search/?keywords=FastAPI+Developer&f_TPR=r86400&f_E=2%2C4&f_EA=true&sortBy=DD
+2026-09-29 23:34:19,377 INFO    app.linkedin: Active filters on page: ['Jobs', 'Most recent', 'Past 24 hours', 'Experience level 2', 'Under 10 applicants']
+2026-09-29 23:34:19,999 INFO    app.linkedin: LinkedIn reports 77 results
+2026-09-29 23:34:28,321 DEBUG   app.linkedin: Skip (title): Systems Engr II | Honeywell Technologies
+2026-09-29 23:34:28,321 DEBUG   app.linkedin: Skip (title): Sr. Software Dev Engineer, Amazon Freight | Amazon
+2026-09-29 23:34:28,322 DEBUG   app.linkedin: Skip (title): Junior AI Engineer | EvalLoop Jobs
+2026-09-29 23:34:28,322 DEBUG   app.linkedin: Skip (title): Senior Full Stack Developer | ownflow
+2026-09-29 23:34:28,322 DEBUG   app.linkedin: Skip (title): Full Stack Developer | Worksoft
+2026-09-29 23:34:28,323 DEBUG   app.linkedin: Skip (title): Tools & Licensing Applications Engineer | Arm
+2026-09-29 23:34:28,323 DEBUG   app.linkedin: Skip (title): Senior Software Development Engineer | Expedia Group
+2026-09-29 23:34:28,323 DEBUG   app.linkedin: Skip (title): Senior Software Architect | Esse India | Canada immigration consultants in delhi | visa consultant delhi
+2026-09-29 23:34:28,323 DEBUG   app.linkedin: Skip (title): Senior Data Engineer | Iris Software Inc.
+2026-09-29 23:34:28,324 DEBUG   app.linkedin: Skip (title): Senior Platform Engineer | LSEG
+2026-09-29 23:34:28,324 DEBUG   app.linkedin: Skip (title): Senior Data Engineer | JLL
+2026-09-29 23:34:28,324 DEBUG   app.linkedin: Skip (title): Lead Software Engineer - Angular | Clarivate
+2026-09-29 23:34:28,325 DEBUG   app.linkedin: Skip (title): Senior Data Engineer | OneMagnify
+2026-09-29 23:34:28,325 DEBUG   app.linkedin: Skip (title): Principal AI Engineer | Bristol Myers Squibb
+2026-09-29 23:34:28,325 DEBUG   app.linkedin: Skip (title): Relativity Developer | Morae
+2026-09-29 23:34:28,325 DEBUG   app.linkedin: Skip (title): Principal AI & Software Architect / Principal Applied Scientist | LMDmax Corp
+2026-09-29 23:34:28,325 DEBUG   app.linkedin: Skip (title): Software developer | Quest Global
+2026-09-29 23:34:28,326 DEBUG   app.linkedin: Skip (title): Azure Integration Sr Consultant | Birlasoft
+2026-09-29 23:34:29,869 INFO    app.linkedin: Match: Sr Data Scientist II - Machine Learning,Deep Learning,Python,,Pytorch | Blue Yonder | Bengaluru East, Karnataka, India | 1 hour ago | applicants=7 people clicked apply
+2026-09-29 23:34:29,869 DEBUG   app.linkedin: Skip (title): Senior ML Engineer | Standard Chartered India
+2026-09-29 23:34:29,870 DEBUG   app.linkedin: Skip (title): Lead Developer - Databricks Applications | Recro
+2026-09-29 23:34:29,870 DEBUG   app.linkedin: Skip (title): Software Engineering - Android Framework | HARMAN India
+2026-09-29 23:34:29,870 DEBUG   app.linkedin: Skip (title): Software Engineer (Java & C++) | EngRadar
+2026-09-29 23:34:29,871 DEBUG   app.linkedin: Skip (title): IoT Software Developer - Device Engineering Team-Husky(India) Guindy, Chennai | Husky Technologies
+2026-09-29 23:34:29,871 DEBUG   app.linkedin: Skip (title): Specialist Software Engineer | NiCE
+2026-09-29 23:34:29,871 INFO    app.linkedin: Page 1: 25 cards, 1 title matches, 1 not seen before
+2026-09-29 23:34:32,513 INFO    app.linkedin: Page 2: https://www.linkedin.com/jobs/search/?keywords=FastAPI+Developer&f_TPR=r86400&f_E=2%2C4&f_EA=true&sortBy=DD&start=25
+2026-09-29 23:34:45,259 DEBUG   app.linkedin: Skip (title): Senior Data Engineer | Iris Software Inc.
+2026-09-29 23:34:45,260 DEBUG   app.linkedin: Seen before, details skipped: Lead Software Engineer - Python | Clarivate
+2026-09-29 23:34:45,260 DEBUG   app.linkedin: Skip (title): Specialist Software Engineer | NiCE
+2026-09-29 23:34:45,260 DEBUG   app.linkedin: Skip (title): RShiny Developer | AAPMOR Inc.
+2026-09-29 23:34:45,260 DEBUG   app.linkedin: Skip (title): Software Engineer Manager (C, C++) | NetApp
+2026-09-29 23:34:45,261 DEBUG   app.linkedin: Skip (title): Application Engineer III | Johnson Controls
+2026-09-29 23:34:45,261 DEBUG   app.linkedin: Skip (title): Senior Sofware Development Lead-R01571578 | Brillio
+2026-09-29 23:34:45,261 DEBUG   app.linkedin: Skip (title): Identity Platform Engineer – Authentication Service | Ford Motor Company
+2026-09-29 23:34:45,262 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-09-29 23:34:45,262 DEBUG   app.linkedin: Skip (title): AV Senior Infrastructure Engineer | Barclays
+2026-09-29 23:34:45,262 DEBUG   app.linkedin: Skip (title): Lead Enterprise Applications Engineer | Envestnet
+2026-09-29 23:34:45,262 DEBUG   app.linkedin: Skip (title): SailPoint IIQ Engineer / IAM Developer (Site Reliability Engineer) | Gurgaon | Hybrid | Immediate Joiner | DigiHelic Solutions Pvt. Ltd.
+2026-09-29 23:34:45,263 DEBUG   app.linkedin: Skip (title): Staff Engineer, Product Software | Equinix
+2026-09-29 23:34:45,263 DEBUG   app.linkedin: Skip (title): Software Engineer – AI/ML/CV at Brivo | NexisGrow Jobs & Internships
+2026-09-29 23:34:45,263 DEBUG   app.linkedin: Skip (title): Application Consultant-AWS Cloud | IBM
+2026-09-29 23:34:45,263 DEBUG   app.linkedin: Skip (title): BC sector -p and u- AMI - Manager | EY
+2026-09-29 23:34:45,264 DEBUG   app.linkedin: Skip (title): DataStage Developer | BNP Paribas
+2026-09-29 23:34:45,264 DEBUG   app.linkedin: Skip (title): Software Engineer, Senior B | Blackbaud India
+2026-09-29 23:34:45,264 DEBUG   app.linkedin: Skip (title): LINUX Systems Integration Senior Specialist | NTT DATA North America
+2026-09-29 23:34:45,265 DEBUG   app.linkedin: Skip (title): Senior AI/FDE Engineer | Milestone Technologies, Inc.
+2026-09-29 23:34:45,265 DEBUG   app.linkedin: Skip (title): IN_Senior Associate_Site Reliability Engineering_GCC_Advisory_Bangalore | PwC India
+2026-09-29 23:34:45,265 DEBUG   app.linkedin: Skip (title): Senior Odoo Technical Lead | ABATE AS
+2026-09-29 23:34:45,265 DEBUG   app.linkedin: Seen before, details skipped: Python Developer | Cloudesign
+2026-09-29 23:34:45,265 DEBUG   app.linkedin: Skip (title): Senior Security MS Engineer - Firewall | NTT DATA, Inc.
+2026-09-29 23:34:45,266 DEBUG   app.linkedin: Skip (title): Sr. BSE - Application Development | Avantor
+2026-09-29 23:34:45,266 INFO    app.linkedin: Page 2: 25 cards, 2 title matches, 0 not seen before
+2026-09-29 23:34:45,266 INFO    app.linkedin: Page 2: every title match was seen in an earlier run, stopping
+2026-09-29 23:34:45,266 INFO    app.linkedin: Done: 3 matching jobs out of 50 cards scanned
+2026-09-29 23:34:45,544 INFO    app.browser: Browser closed
+2026-09-29 23:34:45,591 DEBUG   app.matcher: Score 37 (weak): Lead Software Engineer - Python | asks 6+ yrs (too senior)
+2026-09-29 23:34:45,597 DEBUG   app.matcher: Score 70 (strong): Python Developer | asks 6+ yrs (too senior)
+2026-09-29 23:34:45,602 DEBUG   app.matcher: Score 55 (good): Python developer | no years stated
+2026-09-29 23:34:45,608 DEBUG   app.matcher: Score 71 (strong): Python Developer (Gen AI) | asks 4+ yrs (a stretch)
+2026-09-29 23:34:45,618 DEBUG   app.matcher: Score 9 (poor): Python SDET - Senior Engineer | asks 7+ yrs (too senior)
+2026-09-29 23:34:45,621 DEBUG   app.matcher: Score 30 (weak): Python Developer | asks 7+ yrs (too senior)
+2026-09-29 23:34:45,624 DEBUG   app.matcher: Score 57 (good): Python Developer | no years stated
+2026-09-29 23:34:45,638 DEBUG   app.matcher: Score 20 (poor): Senior Business Systems Engineer, Metronome - Confluent-Python, RestAPI, Billing | asks 8+ yrs (too senior)
+2026-09-29 23:34:45,640 DEBUG   app.matcher: Score 63 (good): 7+ yoe python backend developer with agentic ai | any ust location | immediate joiner | no years stated
+2026-09-29 23:34:45,643 DEBUG   app.matcher: Score 70 (strong): Sr. python backend developer – fastapi / django / flask + appdynamics | 7+ years | any ust location | immediate joiner | asks 7+ yrs (too senior)
+2026-09-29 23:34:45,646 DEBUG   app.matcher: Score 63 (good): Senior Python Engineer | no years stated
+2026-09-29 23:34:45,649 DEBUG   app.matcher: Score 23 (poor): Python Developer | asks 8+ yrs (too senior)
+2026-09-29 23:34:45,658 DEBUG   app.matcher: Score 50 (good): Sr Data Scientist II - Machine Learning,Deep Learning,Python,,Pytorch | no years stated
+2026-09-29 23:34:45,661 INFO    app.storage: Saved 13 jobs to /home/user/Desktop/job-agent/data/jobs/jobs_20260929_233445.json and /home/user/Desktop/job-agent/data/jobs/jobs_20260929_233445.csv
+2026-09-29 23:34:45,738 INFO    app.notify: Notified about 8 new job(s)
+2026-09-29 23:34:45,738 INFO    job_agent: 13 matching jobs, 13 new, 8 worth announcing
+2026-09-29 23:34:45,739 INFO    job_agent: Next check in 211 s
+2026-09-29 23:36:08,400 INFO    job_agent: Stopped by user
