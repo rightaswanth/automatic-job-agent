@@ -1,0 +1,6 @@
+venv/
+data/browser/
+data/jobs/
+logs/*.log
+__pycache__/
+*.pyc
