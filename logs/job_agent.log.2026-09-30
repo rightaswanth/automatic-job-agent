@@ -1,0 +1,135 @@
+2026-09-30 11:54:30,314 INFO    app.service: Resume profile: Aswanth P V, 2.4 yrs experience (+1), 8 core + 21 secondary skills
+2026-09-30 11:54:30,328 INFO    app.service: Auto-scan is off (JOB_AGENT_AUTO_SCAN=0): scans run only on POST /api/scan
+2026-09-30 11:54:30,653 INFO    app.service: Resume profile: Aswanth P V, 2.4 yrs experience (+1), 8 core + 21 secondary skills
+2026-09-30 11:54:30,655 INFO    app.api: Resume profile updated from the dashboard
+2026-09-30 11:55:46,711 INFO    app.service: Resume profile: Aswanth P V, 2.4 yrs experience (+1), 8 core + 21 secondary skills
+2026-09-30 11:55:46,720 INFO    app.service: Auto-scan is off (JOB_AGENT_AUTO_SCAN=0): scans run only on POST /api/scan
+2026-09-30 13:52:22,307 INFO    job_agent: Resume profile: Aswanth P V, 2.4 yrs experience (jobs may ask up to 1 more), 8 core + 21 secondary skills
+2026-09-30 13:52:24,738 INFO    app.browser: Browser launched (headless=False, profile=/home/user/Desktop/job-agent/data/browser)
+2026-09-30 13:52:24,740 INFO    app.linkedin: Search criteria: keywords='Python Developer', posted=past 24 hours, experience=Entry Level, Mid Senior Level, under_10_applicants=True, title_any_of=['python', 'fastapi', 'fast api', 'django']
+2026-09-30 13:52:24,744 INFO    app.linkedin: Page 1: https://www.linkedin.com/jobs/search/?keywords=Python+Developer&f_TPR=r86400&f_E=2%2C4&f_EA=true&sortBy=DD
+2026-09-30 13:52:31,709 INFO    app.linkedin: Active filters on page: ['Jobs', 'Most recent', 'Past 24 hours', 'Experience level 2', 'Under 10 applicants']
+2026-09-30 13:52:31,733 INFO    app.linkedin: LinkedIn reports 28 results
+2026-09-30 13:52:40,353 DEBUG   app.linkedin: Skip (title): Security Engineer | Identity | Expleo Group
+2026-09-30 13:52:40,353 DEBUG   app.linkedin: Skip (title): Software Engineer | ACI Worldwide
+2026-09-30 13:52:40,353 DEBUG   app.linkedin: Skip (title): (Senior) ServiceNow AI Engineer - Full-Remote | All European Careers
+2026-09-30 13:52:40,353 DEBUG   app.linkedin: Skip (title): GCP Data Engineer | RMV Workforce Corporation
+2026-09-30 13:52:40,353 DEBUG   app.linkedin: Skip (title): DevOps Developer | SHARDA CONSULTANCY SERVICES
+2026-09-30 13:52:40,354 DEBUG   app.linkedin: Skip (title): Java Developer | Nippon Data Systems
+2026-09-30 13:52:40,354 DEBUG   app.linkedin: Skip (title): Sr.AIX Engineer_Storage Migration | RSC Solutions India
+2026-09-30 13:52:40,354 DEBUG   app.linkedin: Skip (title): Lead Principal Software Engineer | Astroum AI
+2026-09-30 13:52:40,354 DEBUG   app.linkedin: Skip (title): Senior Java with Kafka Developer (6+ Yrs, ) Immediate (Bangalore only) | Innova ESI
+2026-09-30 13:52:40,354 DEBUG   app.linkedin: Skip (title): Sr Eng, Software, | Baxter International Inc.
+2026-09-30 13:52:40,354 DEBUG   app.linkedin: Skip (title): Dot Net Lead | Populace World Solutions
+2026-09-30 13:52:40,354 DEBUG   app.linkedin: Skip (title): DELMIA Apriso Technical Developer | Programmers.io
+2026-09-30 13:52:40,354 DEBUG   app.linkedin: Skip (title): VC++Developer (MFC, MDI exp) with US based Software Company, Remote. | Seventh Contact Hiring Solutions
+2026-09-30 13:52:40,354 DEBUG   app.linkedin: Skip (title): Salesforce Software Engineer | RELX
+2026-09-30 13:52:40,355 DEBUG   app.linkedin: Skip (title): GCP Data Engineer | Capco
+2026-09-30 13:52:40,355 DEBUG   app.linkedin: Skip (title): Data Scientist for digital team | Schaeffler
+2026-09-30 13:52:40,355 DEBUG   app.linkedin: Skip (title): Kong Developer | Robotico Digital®
+2026-09-30 13:52:40,355 DEBUG   app.linkedin: Skip (title): Software Engineer Task Author (AI Training) | Alignerr
+2026-09-30 13:52:50,783 WARNING app.linkedin: Detail pane did not load for 4471974575 (Python Developer): Timeout 10000ms exceeded.
+2026-09-30 13:52:50,785 INFO    app.linkedin: Match: Python Developer | Cloudesign | Bengaluru, Karnataka, India | 7 hours ago | applicants=None
+2026-09-30 13:53:01,186 WARNING app.linkedin: Detail pane did not load for 4473558364 (Sr. agentic ai python engineer – ai automation & intelligent agents | 7+ years | ust location | immediate joiner): Timeout 10000ms exceeded.
+2026-09-30 13:53:01,212 INFO    app.linkedin: Match: Sr. agentic ai python engineer – ai automation & intelligent agents | 7+ years | ust location | immediate joiner | JobCrexa | Bengaluru East, Karnataka, India | 9 hours ago | applicants=None
+2026-09-30 13:53:01,224 DEBUG   app.linkedin: Skip (title): Senior ML Engineer | Standard Chartered India
+2026-09-30 13:53:01,224 DEBUG   app.linkedin: Skip (title): Software Development Engineer III (Rust + Java) | Upstox
+2026-09-30 13:53:01,225 DEBUG   app.linkedin: Seen before, details skipped: Python developer | Softcrayons IT Education
+2026-09-30 13:53:01,225 DEBUG   app.linkedin: Seen before, details skipped: Python Developer | Softcrayons IT Education
+2026-09-30 13:53:01,226 DEBUG   app.linkedin: Skip (title): Java Developer | Nippon Data Systems
+2026-09-30 13:53:01,226 INFO    app.linkedin: Page 1: 25 cards, 4 title matches, 2 not seen before
+2026-09-30 13:53:03,376 INFO    app.linkedin: Done: 4 matching jobs out of 25 cards scanned
+2026-09-30 13:53:03,388 INFO    app.linkedin: Search criteria: keywords='FastAPI Developer', posted=past 24 hours, experience=Entry Level, Mid Senior Level, under_10_applicants=True, title_any_of=['python', 'fastapi', 'fast api', 'django']
+2026-09-30 13:53:03,398 INFO    app.linkedin: Page 1: https://www.linkedin.com/jobs/search/?keywords=FastAPI+Developer&f_TPR=r86400&f_E=2%2C4&f_EA=true&sortBy=DD
+2026-09-30 13:53:08,428 INFO    app.linkedin: Active filters on page: ['Jobs', 'Most recent', 'Past 24 hours', 'Experience level 2', 'Under 10 applicants']
+2026-09-30 13:53:08,446 INFO    app.linkedin: LinkedIn reports 32 results
+2026-09-30 13:53:18,195 DEBUG   app.linkedin: Skip (title): Security Engineer | Identity | Expleo Group
+2026-09-30 13:53:18,196 DEBUG   app.linkedin: Skip (title): Software Engineer | ACI Worldwide
+2026-09-30 13:53:18,196 DEBUG   app.linkedin: Skip (title): (Senior) ServiceNow AI Engineer - Full-Remote | All European Careers
+2026-09-30 13:53:18,196 DEBUG   app.linkedin: Skip (title): GCP Data Engineer | RMV Workforce Corporation
+2026-09-30 13:53:18,196 DEBUG   app.linkedin: Skip (title): DevOps Developer | SHARDA CONSULTANCY SERVICES
+2026-09-30 13:53:18,196 DEBUG   app.linkedin: Skip (title): Amazon Connect Engineer | Veradium
+2026-09-30 13:53:18,196 DEBUG   app.linkedin: Skip (title): Java Developer | Nippon Data Systems
+2026-09-30 13:53:18,197 DEBUG   app.linkedin: Skip (title): Sr.AIX Engineer_Storage Migration | RSC Solutions India
+2026-09-30 13:53:18,197 DEBUG   app.linkedin: Skip (title): Lead Principal Software Engineer | Astroum AI
+2026-09-30 13:53:18,197 DEBUG   app.linkedin: Skip (title): Senior Java with Kafka Developer (6+ Yrs, ) Immediate (Bangalore only) | Innova ESI
+2026-09-30 13:53:18,197 DEBUG   app.linkedin: Skip (title): Sr Eng, Software, | Baxter International Inc.
+2026-09-30 13:53:18,197 DEBUG   app.linkedin: Skip (title): Dot Net Lead | Populace World Solutions
+2026-09-30 13:53:18,197 DEBUG   app.linkedin: Skip (title): DELMIA Apriso Technical Developer | Programmers.io
+2026-09-30 13:53:18,197 DEBUG   app.linkedin: Skip (title): VC++Developer (MFC, MDI exp) with US based Software Company, Remote. | Seventh Contact Hiring Solutions
+2026-09-30 13:53:18,197 DEBUG   app.linkedin: Skip (title): GCP Data Engineer | Capco
+2026-09-30 13:53:18,197 DEBUG   app.linkedin: Skip (title): Data Scientist for digital team | Schaeffler
+2026-09-30 13:53:18,198 DEBUG   app.linkedin: Skip (title): Kong Developer | Robotico Digital®
+2026-09-30 13:53:18,198 DEBUG   app.linkedin: Skip (title): Interactive voice response | Artech L.L.C.
+2026-09-30 13:53:18,198 DEBUG   app.linkedin: Skip (title): WSO2 Integration Lead | WSO2 Integration Engineer | Mid Data Engineer | Senior Data Engineer | Palvex Tech (OPC) PVT LTD
+2026-09-30 13:53:18,198 DEBUG   app.linkedin: Seen before, details skipped: Python Developer | Cloudesign
+2026-09-30 13:53:18,198 DEBUG   app.linkedin: Skip (title): Backend Developer | MailerMen
+2026-09-30 13:53:18,198 DEBUG   app.linkedin: Seen before, details skipped: Sr. agentic ai python engineer – ai automation & intelligent agents | 7+ years | ust location | immediate joiner | JobCrexa
+2026-09-30 13:53:18,198 DEBUG   app.linkedin: Skip (title): Sr. Data Scientist | HireEdge Technologies Private Limited
+2026-09-30 13:53:18,198 DEBUG   app.linkedin: Skip (title): Sr Engineer, Risk | Vantive
+2026-09-30 13:53:18,198 DEBUG   app.linkedin: Skip (title): Senior ML Engineer | Standard Chartered India
+2026-09-30 13:53:18,198 INFO    app.linkedin: Page 1: 25 cards, 2 title matches, 0 not seen before
+2026-09-30 13:53:19,912 INFO    app.linkedin: Done: 2 matching jobs out of 25 cards scanned
+2026-09-30 13:53:20,498 INFO    app.browser: Browser closed
+2026-09-30 13:53:20,548 INFO    app.storage: Saved 4 jobs to /home/user/Desktop/job-agent/data/jobs/jobs_20260930_135320.json and /home/user/Desktop/job-agent/data/jobs/jobs_20260930_135320.csv
+2026-09-30 13:53:20,551 INFO    app.scan: Scan done in 58 s: 4 matching, 2 new, 2 announced, 0 skipped
+2026-09-30 13:55:42,402 INFO    job_agent: Resume profile: Aswanth P V, 2.4 yrs experience (jobs may ask up to 1 more), 8 core + 21 secondary skills
+2026-09-30 13:55:43,808 INFO    app.browser: Browser launched (headless=False, profile=/home/user/Desktop/job-agent/data/browser)
+2026-09-30 13:55:43,810 INFO    app.linkedin: Search criteria: keywords='Python Developer', posted=past 24 hours, experience=Entry Level, Mid Senior Level, under_10_applicants=True, title_any_of=['python', 'fastapi', 'fast api', 'django']
+2026-09-30 13:55:43,814 INFO    app.linkedin: Page 1: https://www.linkedin.com/jobs/search/?keywords=Python+Developer&f_TPR=r86400&f_E=2%2C4&f_EA=true&sortBy=DD
+2026-09-30 13:55:49,822 INFO    app.linkedin: Active filters on page: ['Jobs', 'Most recent', 'Past 24 hours', 'Experience level 2', 'Under 10 applicants']
+2026-09-30 13:55:49,868 INFO    app.linkedin: LinkedIn reports 18 results
+2026-09-30 13:55:55,834 DEBUG   app.linkedin: Skip (title): Software Engineer | ACI Worldwide
+2026-09-30 13:55:55,835 DEBUG   app.linkedin: Skip (title): (Senior) ServiceNow AI Engineer - Full-Remote | All European Careers
+2026-09-30 13:55:55,835 DEBUG   app.linkedin: Skip (title): GCP Data Engineer | RMV Workforce Corporation
+2026-09-30 13:55:55,835 DEBUG   app.linkedin: Skip (title): Net Full stack Developer(Travel Domain) | SHARDA CONSULTANCY SERVICES
+2026-09-30 13:55:55,835 DEBUG   app.linkedin: Skip (title): Java Developer | Nippon Data Systems
+2026-09-30 13:55:55,835 DEBUG   app.linkedin: Skip (title): Sr.AIX Engineer_Storage Migration | RSC Solutions India
+2026-09-30 13:55:55,835 DEBUG   app.linkedin: Skip (title): Sr Eng, Software, | Baxter International Inc.
+2026-09-30 13:55:55,835 DEBUG   app.linkedin: Skip (title): DELMIA Apriso Technical Developer | Programmers.io
+2026-09-30 13:55:55,836 DEBUG   app.linkedin: Skip (title): Salesforce Software Engineer | RELX
+2026-09-30 13:55:55,836 DEBUG   app.linkedin: Skip (title): GCP Data Engineer | Capco
+2026-09-30 13:55:55,836 DEBUG   app.linkedin: Skip (title): Data Scientist for digital team | Schaeffler
+2026-09-30 13:55:55,836 DEBUG   app.linkedin: Skip (title): Kong Developer | Robotico Digital®
+2026-09-30 13:55:55,836 DEBUG   app.linkedin: Skip (title): Software Engineer Task Author (AI Training) | Alignerr
+2026-09-30 13:56:06,165 WARNING app.linkedin: Detail pane did not load for 4471974575 (Python Developer): Timeout 10000ms exceeded.
+2026-09-30 13:56:06,172 INFO    app.linkedin: Match: Python Developer | Cloudesign | Bengaluru, Karnataka, India | None | applicants=None
+2026-09-30 13:56:16,592 WARNING app.linkedin: Detail pane did not load for 4473558364 (Sr. agentic ai python engineer – ai automation & intelligent agents | 7+ years | ust location | immediate joiner): Timeout 10000ms exceeded.
+2026-09-30 13:56:16,603 INFO    app.linkedin: Match: Sr. agentic ai python engineer – ai automation & intelligent agents | 7+ years | ust location | immediate joiner | JobCrexa | Bengaluru East, Karnataka, India | None | applicants=None
+2026-09-30 13:56:27,065 WARNING app.linkedin: Detail pane did not load for 4473227255 (Python developer): Timeout 10000ms exceeded.
+2026-09-30 13:56:27,080 INFO    app.linkedin: Match: Python developer | Softcrayons IT Education | Ghaziabad, Uttar Pradesh, India | None | applicants=None
+2026-09-30 13:56:37,590 WARNING app.linkedin: Detail pane did not load for 4473233208 (Python Developer): Timeout 10000ms exceeded.
+2026-09-30 13:56:37,596 INFO    app.linkedin: Match: Python Developer | Softcrayons IT Education | Ghaziabad, Uttar Pradesh, India | None | applicants=None
+2026-09-30 13:56:48,006 WARNING app.linkedin: Detail pane did not load for 4473211977 (Python Developer): Timeout 10000ms exceeded.
+2026-09-30 13:56:48,018 INFO    app.linkedin: Match: Python Developer | Softcrayons IT Education | Ghaziabad, Uttar Pradesh, India | None | applicants=None
+2026-09-30 13:56:48,037 INFO    app.linkedin: Page 1: 18 cards, 5 title matches, 5 not seen before
+2026-09-30 13:56:48,072 INFO    app.linkedin: Done: 5 matching jobs out of 18 cards scanned
+2026-09-30 13:56:48,084 INFO    app.linkedin: Search criteria: keywords='FastAPI Developer', posted=past 24 hours, experience=Entry Level, Mid Senior Level, under_10_applicants=True, title_any_of=['python', 'fastapi', 'fast api', 'django']
+2026-09-30 13:56:48,094 INFO    app.linkedin: Page 1: https://www.linkedin.com/jobs/search/?keywords=FastAPI+Developer&f_TPR=r86400&f_E=2%2C4&f_EA=true&sortBy=DD
+2026-09-30 13:56:52,781 INFO    app.linkedin: Active filters on page: ['Jobs', 'Most recent', 'Past 24 hours', 'Experience level 2', 'Under 10 applicants']
+2026-09-30 13:56:52,807 INFO    app.linkedin: LinkedIn reports 20 results
+2026-09-30 13:56:59,393 DEBUG   app.linkedin: Skip (title): Software Engineer | ACI Worldwide
+2026-09-30 13:56:59,393 DEBUG   app.linkedin: Skip (title): (Senior) ServiceNow AI Engineer - Full-Remote | All European Careers
+2026-09-30 13:56:59,393 DEBUG   app.linkedin: Skip (title): GCP Data Engineer | RMV Workforce Corporation
+2026-09-30 13:56:59,393 DEBUG   app.linkedin: Skip (title): Net Full stack Developer(Travel Domain) | SHARDA CONSULTANCY SERVICES
+2026-09-30 13:56:59,393 DEBUG   app.linkedin: Skip (title): Amazon Connect Engineer | Veradium
+2026-09-30 13:56:59,393 DEBUG   app.linkedin: Skip (title): Java Developer | Nippon Data Systems
+2026-09-30 13:56:59,393 DEBUG   app.linkedin: Skip (title): Sr.AIX Engineer_Storage Migration | RSC Solutions India
+2026-09-30 13:56:59,393 DEBUG   app.linkedin: Skip (title): Sr Eng, Software, | Baxter International Inc.
+2026-09-30 13:56:59,393 DEBUG   app.linkedin: Skip (title): DELMIA Apriso Technical Developer | Programmers.io
+2026-09-30 13:56:59,394 DEBUG   app.linkedin: Skip (title): VC++Developer (MFC, MDI exp) with US based Software Company, Remote. | Seventh Contact Hiring Solutions
+2026-09-30 13:56:59,394 DEBUG   app.linkedin: Skip (title): GCP Data Engineer | Capco
+2026-09-30 13:56:59,394 DEBUG   app.linkedin: Skip (title): Data Scientist for digital team | Schaeffler
+2026-09-30 13:56:59,394 DEBUG   app.linkedin: Skip (title): Kong Developer | Robotico Digital®
+2026-09-30 13:56:59,394 DEBUG   app.linkedin: Seen before, details skipped: Python Developer | Cloudesign
+2026-09-30 13:56:59,394 DEBUG   app.linkedin: Skip (title): Backend Developer | MailerMen
+2026-09-30 13:56:59,394 DEBUG   app.linkedin: Seen before, details skipped: Sr. agentic ai python engineer – ai automation & intelligent agents | 7+ years | ust location | immediate joiner | JobCrexa
+2026-09-30 13:56:59,394 DEBUG   app.linkedin: Skip (title): Sr. Data Scientist | HireEdge Technologies Private Limited
+2026-09-30 13:56:59,394 DEBUG   app.linkedin: Skip (title): Software Development Engineer III (Rust + Java) | Upstox
+2026-09-30 13:56:59,395 DEBUG   app.linkedin: Skip (title): Principal Engineer - Wastewater Modelling | WSP in India
+2026-09-30 13:56:59,395 DEBUG   app.linkedin: Skip (title): Snowflake Developer | Crisil
+2026-09-30 13:56:59,395 INFO    app.linkedin: Page 1: 20 cards, 2 title matches, 0 not seen before
+2026-09-30 13:56:59,401 INFO    app.linkedin: Done: 2 matching jobs out of 20 cards scanned
+2026-09-30 13:56:59,648 INFO    app.browser: Browser closed
+2026-09-30 13:56:59,677 INFO    app.storage: Saved 5 jobs to /home/user/Desktop/job-agent/data/jobs/jobs_20260930_135659.json and /home/user/Desktop/job-agent/data/jobs/jobs_20260930_135659.csv
+2026-09-30 13:56:59,680 INFO    app.scan: Scan done in 77 s: 5 matching, 0 new, 0 announced, 0 skipped

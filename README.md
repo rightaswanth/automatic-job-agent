@@ -16,7 +16,9 @@ every 5 min ──▶ open Chromium (your logged-in profile)
               ──▶ open the detail pane of each NEW job (applicants, description)
               ──▶ score it 0-100 against resume.json
               ──▶ save data/jobs/*.json + *.csv, remember the ids in seen_jobs.json
-              ──▶ desktop notification for new jobs scoring ≥ 50
+                  (a detail pane that failed to load is retried on the next scans)
+              ──▶ desktop notification for new jobs that fit your experience and score ≥ 50
+                  (≥ 70 when the ad states no years)
 ```
 
 | File | Purpose |
@@ -28,16 +30,13 @@ every 5 min ──▶ open Chromium (your logged-in profile)
 | `app/matcher.py` | Scores a job against `resume.json` (skills, title, years) |
 | `app/notify.py` | Desktop notifications (`notify-send` on Linux, `osascript` on macOS) |
 | `app/report.py` | Colourful terminal output (`rich`): scan log lines and the per-scan report |
-| `app/scan.py` | One scan (search → score → save → notify), shared by the CLI and the service |
-| `app/api.py` | FastAPI app: JSON API + serves the dashboard |
-| `app/service.py` | Runs scans for the API: one at a time in a worker thread, on a timer and on demand |
-| `app/settings.py` | Service settings from `JOB_AGENT_*` environment variables |
-| `app/web/index.html` | The dashboard (plain HTML + JS, talks to `/api/*`) |
+| `app/scan.py` | One scan (search → score → save → notify) |
 | `app/models.py` | The `Job` record and small text parsers |
-| `app/storage.py` | JSON/CSV output and the seen-jobs store |
+| `app/storage.py` | JSON/CSV output, the seen-jobs store and the detail-pane retry counter |
+| `tests/` | Unit tests (`python -m unittest discover -v`); `test_matcher.py` holds the real phrases the years parser must read |
 | `resume.json` | Your profile: target titles, core and secondary skills, when your experience started |
 | `data/browser/` | Chromium profile with your LinkedIn session (never share it) |
-| `data/jobs/` | Results: `jobs_<stamp>.json/.csv`, `latest.json`, `seen_jobs.json`, and `jobs_db.json` (every job ever found, for the dashboard) |
+| `data/jobs/` | Results: `jobs_<stamp>.json/.csv`, `latest.json`, `seen_jobs.json`, `pending_details.json` (panes still to retry) |
 | `logs/` | `job_agent.log`, rotated daily |
 
 ## Setup (once)
@@ -76,6 +75,7 @@ python -m app.main --watch --headless --interval 600 --min-score 60
 python -m app.main --keywords "Django Developer" --keywords "Backend Engineer" --title-keyword django --title-keyword backend
 python -m app.main --location "Bengaluru"
 python -m app.main --years-tolerance 0.5        # stricter: skip jobs asking > 0.5 yr more than you have
+python -m app.main --unknown-years-min-score 50 # notify ads that state no years at the normal bar (default 70; 101 = never)
 python -m app.main --experience-level entry_level --experience-level associate   # LinkedIn's own level filter
 python -m app.main --refresh-seen          # re-open and re-score jobs already seen (after editing resume.json)
 python -m app.main --no-details            # faster: titles only, no applicant counts or scoring
@@ -91,42 +91,6 @@ nohup venv/bin/python -m app.main --watch --headless > /dev/null 2>&1 &
 (For a proper background service use a `systemd --user` unit; it must export
 `DISPLAY` and `DBUS_SESSION_BUS_ADDRESS` so `notify-send` can reach your desktop.)
 
-## Web dashboard and API (FastAPI)
-
-```bash
-source venv/bin/activate
-uvicorn app.api:app --port 8000
-```
-
-Open <http://localhost:8000>. The service scans every 5 minutes on its own
-(headless, one scan at a time) and sends the same desktop notifications as the
-CLI. The page shows every job ever found, best score first, with clickable
-links, filters (min score, only new, hide too-senior, search), a **Scan now**
-button, an editor for `resume.json`, and the scan history. Interactive API
-docs are at <http://localhost:8000/docs>.
-
-| Endpoint | |
-|---|---|
-| `GET /api/status` | scanner state, last scan, next scan, profile, settings |
-| `POST /api/scan` | start a scan now (`409` if one is running) |
-| `GET /api/jobs?min_score=50&only_new=true&include_skipped=false&q=fastapi` | jobs, best first |
-| `GET /api/jobs/{id}` | one job with its description |
-| `GET /api/profile` · `PUT /api/profile` | read / replace `resume.json` (validated first) |
-| `GET /api/scans` | scans run since the service started |
-
-Settings are environment variables (defaults shown):
-
-```bash
-JOB_AGENT_INTERVAL=300 JOB_AGENT_AUTO_SCAN=1 JOB_AGENT_HEADLESS=1 JOB_AGENT_MIN_SCORE=50 \
-JOB_AGENT_KEYWORDS="Python Developer,FastAPI Developer" JOB_AGENT_MAX_PAGES=10 JOB_AGENT_NOTIFY=1 \
-JOB_AGENT_YEARS_TOLERANCE=1 JOB_AGENT_RESUME=resume.json JOB_AGENT_VERBOSE=0 uvicorn app.api:app --port 8000
-```
-
-The CLI and the service share the scanner and the browser profile, so run one
-or the other, not both. Sign in to LinkedIn with the CLI first
-(`python -m app.main --keep-open`). Note that the API layer is for convenience,
-not speed: a scan takes as long as LinkedIn takes to serve the pages either way.
-
 ## The match score
 
 | Part | Points | How |
@@ -139,8 +103,18 @@ not speed: a scan takes as long as LinkedIn takes to serve the pages either way.
 **Experience is also a hard gate.** An ad asking for more years than you have
 plus `years_tolerance` is marked `experience_fit = false`, capped at
 25 points, never notified, and listed under *Skipped* in the terminal. Years
-are read from phrases like "3+ years of experience", "2-4 yrs", "7+ yoe" in the
-title and description; an ad that states no years is not skipped.
+are read from phrases like "3+ years of experience", "Experience: 5-8 years",
+"8 - 9 Years", "minimum 5 years", "between 3 and 5 years" or "7+ yoe" in the
+title and description. When an ad states several numbers, the first one in the
+text decides, except that an explicitly labelled one ("Experience:", "Minimum",
+"Total …") beats an unlabelled one — so "1-3 years of Mendix" cannot override
+"3-5 years of software engineering". The deciding phrase is quoted in the job's
+notes, e.g. `asks 5+ yrs («Experience: 5-8 years»)`.
+
+An ad that states no years is not skipped, with two exceptions: a title saying
+Senior / Sr / Lead / Principal / Staff / Architect / Head of / Manager / Director
+is treated as asking for more than you have, and any other such ad is only
+notified when it scores at least `--unknown-years-min-score` (default 70).
 `years_tolerance` is `0` in `resume.json`: with 2.4 years, ads asking "2+ years",
 "1-3 years" or "0-2 years" pass and "3+ years" is skipped. Set it to `1` (or run
 with `--years-tolerance 1`) to also accept ads asking one year more than you have.
@@ -155,8 +129,21 @@ your experience, score ≥ `--min-score`), **Other matches**, and **Skipped**.
 Links are underlined blue and clickable in most terminals. Set `NO_COLOR=1` to
 turn colour off.
 
-Only jobs not seen before are opened, scored and announced. Delete
-`data/jobs/seen_jobs.json` to start over.
+Only jobs not seen before are opened and announced. Every job found is scored;
+one whose detail pane did not load is scored from its title alone (its notes say
+so), is not announced yet, and its pane is retried on the next scans — after 3
+failed attempts it is remembered as is. Delete `data/jobs/seen_jobs.json` and
+`pending_details.json` to start over.
+
+## Tests
+
+```bash
+venv/bin/python -m unittest discover -v
+```
+
+`tests/test_matcher.py` is the regression corpus for the years parser: every
+phrase in it came from a real posting, with the number of years it asks for.
+When a job is scored wrongly, add its phrase there first.
 
 ## Exit codes
 

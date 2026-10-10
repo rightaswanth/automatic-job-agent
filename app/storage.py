@@ -1,4 +1,11 @@
-"""Persist search results (JSON + CSV) and remember which jobs were seen before."""
+"""
+Persist search results (JSON + CSV) and remember which jobs were seen before.
+
+Two small JSON stores live next to the results: ``seen_jobs.json`` (job id -> when it
+was first seen) and ``pending_details.json`` (job id -> how many scans its detail pane
+failed to load). A job whose pane did not load is not remembered yet, so the next scan
+opens it again; after MAX_DETAIL_ATTEMPTS such scans it is remembered anyway.
+"""
 from __future__ import annotations
 
 import csv
@@ -17,36 +24,58 @@ CSV_COLUMNS = [
     "match_score", "match_verdict", "matched_skills", "missing_skills", "required_years", "experience_fit", "match_notes", "url",
 ]
 SEEN_STORE_NAME = "seen_jobs.json"
+PENDING_DETAILS_NAME = "pending_details.json"
+MAX_DETAIL_ATTEMPTS = 3  # scans without a detail pane before the job is remembered with its title-only score
 
 
-def _read_seen_store(store: Path) -> dict[str, str]:
-    """job_id -> ISO time it was first seen."""
-    if not store.exists():
+def _read_store(path: Path) -> dict:
+    if not path.exists():
         return {}
     try:
-        return json.loads(store.read_text())
+        return json.loads(path.read_text())
     except json.JSONDecodeError:
-        log.warning("Seen-store %s is corrupt, starting fresh", store)
+        log.warning("Store %s is corrupt, starting fresh", path)
         return {}
 
 
 def load_seen_ids(output_dir: Path) -> set[str]:
-    return set(_read_seen_store(output_dir / SEEN_STORE_NAME))
+    return set(_read_store(output_dir / SEEN_STORE_NAME))
 
 
-def mark_seen(jobs: list[Job], output_dir: Path) -> int:
-    """Set ``is_new`` on each job from the seen-store and record the new ones. Returns the count of new jobs."""
+def load_pending_details(output_dir: Path) -> dict[str, int]:
+    """job_id -> number of scans whose detail pane failed to load, for jobs not remembered yet."""
+    return _read_store(output_dir / PENDING_DETAILS_NAME)
+
+
+def mark_seen(jobs: list[Job], output_dir: Path, details_missing: set[str] = frozenset()) -> int:
+    """
+    Set ``is_new`` on each job from the seen-store and record the new ones. Returns the count of new jobs.
+
+    A new job in ``details_missing`` (its detail pane did not load) is counted as new but not recorded,
+    so the next scan opens its pane again; after MAX_DETAIL_ATTEMPTS such scans it is recorded anyway.
+    """
     output_dir.mkdir(parents=True, exist_ok=True)
-    store = output_dir / SEEN_STORE_NAME
-    seen = _read_seen_store(store)
+    seen_store, pending_store = output_dir / SEEN_STORE_NAME, output_dir / PENDING_DETAILS_NAME
+    seen = _read_store(seen_store)
+    pending: dict[str, int] = _read_store(pending_store)
     now = datetime.now().isoformat(timespec="seconds")
     new_count = 0
     for job in jobs:
         job.is_new = job.job_id not in seen
-        if job.is_new:
-            seen[job.job_id] = now
-            new_count += 1
-    store.write_text(json.dumps(seen, indent=2))
+        if not job.is_new:
+            continue
+        new_count += 1
+        if job.job_id in details_missing:
+            attempts = pending.get(job.job_id, 0) + 1
+            if attempts < MAX_DETAIL_ATTEMPTS:
+                pending[job.job_id] = attempts
+                log.info("Detail pane missing for %s (%s), attempt %d/%d; retrying next scan", job.job_id, job.title, attempts, MAX_DETAIL_ATTEMPTS)
+                continue
+            log.warning("Giving up on details for %s (%s) after %d scans; scored from the title only", job.job_id, job.title, attempts)
+        seen[job.job_id] = now
+        pending.pop(job.job_id, None)
+    seen_store.write_text(json.dumps(seen, indent=2))
+    pending_store.write_text(json.dumps(pending, indent=2))
     return new_count
 
 
@@ -75,41 +104,3 @@ def save_results(jobs: list[Job], output_dir: Path, criteria_description: str) -
             writer.writerow(row)
     log.info("Saved %d jobs to %s and %s", len(jobs), json_path, csv_path)
     return json_path, csv_path
-
-
-JOBS_DB_NAME = "jobs_db.json"
-_EMPTY = (None, "", [])
-
-
-def load_jobs_db(output_dir: Path) -> dict[str, dict]:
-    """Every job ever scanned: job_id -> ``Job.to_dict()`` plus first/last seen scan ids and ``times_seen``."""
-    path = output_dir / JOBS_DB_NAME
-    if not path.exists():
-        return {}
-    try:
-        return json.loads(path.read_text(encoding="utf-8"))
-    except json.JSONDecodeError:
-        log.warning("Jobs database %s is corrupt, starting fresh", path)
-        return {}
-
-
-def upsert_jobs_db(jobs: list[Job], output_dir: Path, scan_id: str) -> dict[str, dict]:
-    """Merge this scan's jobs into the database.
-
-    Fields the fresh record lacks (the description and score of a job whose
-    detail pane was not re-opened, say) keep their earlier value.
-    """
-    output_dir.mkdir(parents=True, exist_ok=True)
-    db = load_jobs_db(output_dir)
-    for job in jobs:
-        fresh = job.to_dict()
-        record = db.get(job.job_id)
-        if record is None:
-            record = {**fresh, "first_seen_scan": scan_id, "times_seen": 0}
-            db[job.job_id] = record
-        else:
-            record.update({key: value for key, value in fresh.items() if value not in _EMPTY})
-        record["last_seen_scan"] = scan_id
-        record["times_seen"] += 1
-    (output_dir / JOBS_DB_NAME).write_text(json.dumps(db, indent=2, ensure_ascii=False), encoding="utf-8")
-    return db

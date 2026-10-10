@@ -76,7 +76,8 @@ def _job_block(job: Job, announced: bool) -> Text:
 def _skipped_line(job: Job) -> Text:
     title = job.title if len(job.title) <= TITLE_MAX else job.title[: TITLE_MAX - 1] + "…"
     line = Text("  ✖ ", style="red")
-    line.append(f"asks {job.required_years}+ yrs".ljust(14), style="red")
+    reason = f"asks {job.required_years}+ yrs" if job.required_years is not None else "years unknown"
+    line.append(reason.ljust(14), style="red")
     line.append(title, style="dim")
     line.append(f"  |  {job.company or '?'}  |  ", style="dim")
     line.append_text(_link(job.url))
@@ -104,7 +105,10 @@ def print_report(
     json_path: Path,
     csv_path: Path,
 ) -> None:
-    """Three groups: notified, other matches, and skipped for asking too much experience."""
+    """
+    Three groups: notified, other matches, and skipped for asking too much experience.
+    """
+    
     shown = [j for j in jobs if j.is_new] if only_new else list(jobs)
     notified = sorted((j for j in shown if j.job_id in announced_ids), key=_sort_key, reverse=True)
     skipped = sorted((j for j in shown if j.experience_fit is False), key=_sort_key, reverse=True)

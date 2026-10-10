@@ -96,10 +96,14 @@ class LinkedInJobSearch:
         skip_details_for: set[str] | None = None,
         stop_at_seen_page: bool = False,
     ) -> None:
-        """``skip_details_for`` holds job ids seen in earlier runs: their detail pane
+
+        """
+        `'skip_details_for`` holds job ids seen in earlier runs: their detail pane
         is not opened again (fewer clicks on LinkedIn). With ``stop_at_seen_page``
         the walk stops at the first page whose title matches were all seen before,
-        which is safe when results are sorted most-recent-first and polled often."""
+        which is safe when results are sorted most-recent-first and polled often.
+        """
+        
         self.page = page
         self.criteria = criteria
         self.fetch_details = fetch_details
@@ -108,9 +112,11 @@ class LinkedInJobSearch:
         self.stop_at_seen_page = stop_at_seen_page
         self.total_results: int | None = None
 
-    # ------------------------------------------------------------------ public
     def run(self) -> list[Job]:
-        """Walk every results page, keep title matches, optionally enrich from the detail pane."""
+        """
+        Walk every results page, keep title matches, optionally enrich from the detail pane.
+        """
+
         log.info("Search criteria: %s", self.criteria.describe())
         jobs: list[Job] = []
         seen_ids: set[str] = set()
@@ -166,7 +172,6 @@ class LinkedInJobSearch:
         log.info("Done: %d matching jobs out of %d cards scanned", len(jobs), len(seen_ids))
         return jobs
 
-    # ---------------------------------------------------------------- navigation
     def _goto_results(self, url: str) -> bool:
         self.page.goto(url, wait_until="domcontentloaded")
         self._ensure_logged_in()

@@ -1,0 +1,194 @@
+2026-10-08 21:56:11,690 INFO    job_agent: Resume profile: Aswanth P V, 2.4 yrs experience (jobs may ask up to 0 more), 8 core + 21 secondary skills
+2026-10-08 21:56:14,522 INFO    app.browser: Browser launched (headless=False, profile=/home/user/Desktop/job-agent/data/browser)
+2026-10-08 21:56:14,529 INFO    app.linkedin: Search criteria: keywords='Python Developer', posted=past 24 hours, experience=Entry Level, Mid Senior Level, under_10_applicants=True, title_any_of=['python', 'fastapi', 'fast api', 'django']
+2026-10-08 21:56:14,533 INFO    app.linkedin: Page 1: https://www.linkedin.com/jobs/search/?keywords=Python+Developer&f_TPR=r86400&f_E=2%2C4&f_EA=true&sortBy=DD
+2026-10-08 21:56:25,160 INFO    app.linkedin: Active filters on page: ['Jobs', 'Most recent', 'Past 24 hours', 'Experience level 2', 'Under 10 applicants']
+2026-10-08 21:56:25,367 INFO    app.linkedin: LinkedIn reports 49 results
+2026-10-08 21:56:33,353 DEBUG   app.linkedin: Skip (title): Azure AI Engineer - Senior Associate | PwC Acceleration Center India
+2026-10-08 21:56:43,767 WARNING app.linkedin: Detail pane did not load for 4474827647 (Python Full Stack Developer): Timeout 10000ms exceeded.
+2026-10-08 21:56:43,768 INFO    app.linkedin: Match: Python Full Stack Developer | Zemoso Technologies | Bengaluru, Karnataka, India | 12 minutes ago | applicants=None
+2026-10-08 21:56:43,769 DEBUG   app.linkedin: Skip (title): Software Engineering Senior Associate | The Depository Trust & Clearing Corporation (DTCC)
+2026-10-08 21:56:43,769 DEBUG   app.linkedin: Skip (title): Senior Software Engineer - F5 BIG-IP (LTM/GTM/DNS/WAF) and AVI Load Balancers | Wells Fargo
+2026-10-08 21:56:43,770 DEBUG   app.linkedin: Skip (title): Senior Software Engineer | Uplers
+2026-10-08 21:56:43,770 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:56:43,770 DEBUG   app.linkedin: Skip (title): AI-Augmented SDET in Airlines PSS | Cognizant
+2026-10-08 21:56:43,770 DEBUG   app.linkedin: Skip (title): Cloud AI Consultant | Saarthee
+2026-10-08 21:56:43,770 DEBUG   app.linkedin: Skip (title): Data Engineer-Data Platforms-SnowFlake | IBM
+2026-10-08 21:56:43,770 DEBUG   app.linkedin: Skip (title): Software and Embedded Firmware Eng | MKS Inc.
+2026-10-08 21:56:43,770 DEBUG   app.linkedin: Skip (title): Sr Eng, V&V, | Baxter International Inc.
+2026-10-08 21:56:43,770 DEBUG   app.linkedin: Skip (title): Intermediate App Developer – Production Engineering, Java | UPS
+2026-10-08 21:56:43,770 DEBUG   app.linkedin: Skip (title): Appian Developer | JRD Systems
+2026-10-08 21:56:43,771 DEBUG   app.linkedin: Skip (title): Guidewire Portal Developer | BlitzenX
+2026-10-08 21:56:43,771 DEBUG   app.linkedin: Skip (title): ServiceNow GRC Developer | Equifax
+2026-10-08 21:56:43,771 DEBUG   app.linkedin: Skip (title): Advanced Cyber Sec Archt/Engr | Honeywell Technologies
+2026-10-08 21:56:43,771 DEBUG   app.linkedin: Skip (title): Sr Stat Programmer | IQVIA
+2026-10-08 21:56:43,771 DEBUG   app.linkedin: Skip (title): Applications Developer_Enterprise App SaaS | Uber
+2026-10-08 21:56:54,344 WARNING app.linkedin: Detail pane did not load for 4475795103 (Tech Lead - Python Developer): Timeout 10000ms exceeded.
+2026-10-08 21:56:54,345 INFO    app.linkedin: Match: Tech Lead - Python Developer | Aristocrat | Gurugram, Haryana, India | 6 hours ago | applicants=None
+2026-10-08 21:56:54,346 DEBUG   app.linkedin: Skip (title): Oracle Fusion Cloud Security Consultant | Sourcebae
+2026-10-08 21:57:04,726 WARNING app.linkedin: Detail pane did not load for 4475793037 (Python Developer - Global Markets): Timeout 10000ms exceeded.
+2026-10-08 21:57:04,728 INFO    app.linkedin: Match: Python Developer - Global Markets | Crisil | Chennai, Tamil Nadu, India | 7 hours ago | applicants=None
+2026-10-08 21:57:04,730 DEBUG   app.linkedin: Skip (title): Z4_FS Developer | NTT DATA North America
+2026-10-08 21:57:15,150 WARNING app.linkedin: Detail pane did not load for 4475783542 (Senior Python Developer): Timeout 10000ms exceeded.
+2026-10-08 21:57:15,156 INFO    app.linkedin: Match: Senior Python Developer | Crisil | Mumbai, Maharashtra, India | 7 hours ago | applicants=None
+2026-10-08 21:57:25,545 WARNING app.linkedin: Detail pane did not load for 4475771809 (Senior Python Developer): Timeout 10000ms exceeded.
+2026-10-08 21:57:25,547 INFO    app.linkedin: Match: Senior Python Developer | Crisil | Chennai, Tamil Nadu, India | 7 hours ago | applicants=None
+2026-10-08 21:57:36,225 WARNING app.linkedin: Detail pane did not load for 4475770942 (Senior Python Developer): Timeout 10000ms exceeded.
+2026-10-08 21:57:36,227 INFO    app.linkedin: Match: Senior Python Developer | Crisil | Gurgaon, Haryana, India | 7 hours ago | applicants=None
+2026-10-08 21:57:36,229 INFO    app.linkedin: Page 1: 25 cards, 6 title matches, 6 not seen before
+2026-10-08 21:57:38,415 INFO    app.linkedin: Page 2: https://www.linkedin.com/jobs/search/?keywords=Python+Developer&f_TPR=r86400&f_E=2%2C4&f_EA=true&sortBy=DD&start=25
+2026-10-08 21:57:55,851 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:57:55,851 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:57:55,851 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:57:55,851 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:57:55,851 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:57:55,851 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:57:55,851 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:57:55,851 DEBUG   app.linkedin: Skip (title): Data Engineer-Data Platforms-AWS | IBM
+2026-10-08 21:57:55,851 DEBUG   app.linkedin: Skip (title): Data Engineer-Data Platforms-SnowFlake | IBM
+2026-10-08 21:57:55,852 DEBUG   app.linkedin: Skip (title): Data Engineer-Data Platforms-Databricks | IBM
+2026-10-08 21:57:55,852 DEBUG   app.linkedin: Skip (title): Application Developer | Accenture in India
+2026-10-08 21:57:55,852 DEBUG   app.linkedin: Skip (title): Web Developer Analyst | Accenture in India
+2026-10-08 21:57:55,852 DEBUG   app.linkedin: Skip (title): Application Developer | Accenture in India
+2026-10-08 21:57:55,852 DEBUG   app.linkedin: Skip (title): Application Developer | Accenture in India
+2026-10-08 21:57:57,329 INFO    app.linkedin: Match: Python Developer - Global Markets | Crisil | Gurugram, Haryana, India | 7 hours ago | applicants=2 people clicked apply
+2026-10-08 21:57:58,766 INFO    app.linkedin: Match: Python Developer - Global Markets | Crisil | Bengaluru, Karnataka, India | 7 hours ago | applicants=4 people clicked apply
+2026-10-08 21:58:00,392 INFO    app.linkedin: Match: Python Developer - Global Markets | Crisil | Mumbai, Maharashtra, India | 7 hours ago | applicants=4 people clicked apply
+2026-10-08 21:58:01,954 INFO    app.linkedin: Match: Senior Python Developer | Crisil | Pune Division, Maharashtra, India | 7 hours ago | applicants=0 people clicked apply
+2026-10-08 21:58:01,958 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:58:01,958 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:58:01,958 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:58:01,958 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:58:01,958 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:58:01,959 INFO    app.linkedin: Page 2: 23 cards, 4 title matches, 4 not seen before
+2026-10-08 21:58:01,980 INFO    app.linkedin: Done: 10 matching jobs out of 48 cards scanned
+2026-10-08 21:58:01,982 INFO    app.linkedin: Search criteria: keywords='FastAPI Developer', posted=past 24 hours, experience=Entry Level, Mid Senior Level, under_10_applicants=True, title_any_of=['python', 'fastapi', 'fast api', 'django']
+2026-10-08 21:58:01,986 INFO    app.linkedin: Page 1: https://www.linkedin.com/jobs/search/?keywords=FastAPI+Developer&f_TPR=r86400&f_E=2%2C4&f_EA=true&sortBy=DD
+2026-10-08 21:58:06,950 INFO    app.linkedin: Active filters on page: ['Jobs', 'Most recent', 'Past 24 hours', 'Experience level 2', 'Under 10 applicants']
+2026-10-08 21:58:06,965 INFO    app.linkedin: LinkedIn reports 101 results
+2026-10-08 21:58:14,776 DEBUG   app.linkedin: Skip (title): Azure AI Engineer - Senior Associate | PwC Acceleration Center India
+2026-10-08 21:58:14,777 DEBUG   app.linkedin: Seen before, details skipped: Python Full Stack Developer | Zemoso Technologies
+2026-10-08 21:58:14,777 DEBUG   app.linkedin: Skip (title): Senior Firmware Engineer (C++) | Quest Global
+2026-10-08 21:58:14,777 DEBUG   app.linkedin: Skip (title): Marketing Staff | NRJ ELECTRIC MOTOR VEHICLES PVT.LTD
+2026-10-08 21:58:14,777 DEBUG   app.linkedin: Skip (title): Senior Software Engineer - F5 BIG-IP (LTM/GTM/DNS/WAF) and AVI Load Balancers | Wells Fargo
+2026-10-08 21:58:14,777 DEBUG   app.linkedin: Skip (title): Site Reliability Engineer, Vice President | NatWest Group
+2026-10-08 21:58:14,777 DEBUG   app.linkedin: Skip (title): Senior Embedded Engineer | POSSPOLE
+2026-10-08 21:58:14,777 DEBUG   app.linkedin: Skip (title): Customer Service Executive | Rmak Solutions
+2026-10-08 21:58:14,778 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:58:14,778 DEBUG   app.linkedin: Skip (title): AI & Social Media Project Manager | Spotlight Marketing
+2026-10-08 21:58:14,778 DEBUG   app.linkedin: Skip (title): SD Stay Executive | 2dot2 India Private Limited
+2026-10-08 21:58:20,996 INFO    app.linkedin: Match: Python +DB | Wissen Technology | Mumbai Metropolitan Region | 1 hour ago | applicants=9 people clicked apply
+2026-10-08 21:58:21,004 DEBUG   app.linkedin: Skip (title): Store Executive | Elgin Cafe ldh
+2026-10-08 21:58:21,009 DEBUG   app.linkedin: Skip (title): API Automation Engineer - Rest Assured | Cognizant
+2026-10-08 21:58:21,009 DEBUG   app.linkedin: Skip (title): Digi SC - Planning - Kinaxis - Manager | EY
+2026-10-08 21:58:21,009 DEBUG   app.linkedin: Skip (title): Analyst II - Information Security | UST
+2026-10-08 21:58:21,009 DEBUG   app.linkedin: Skip (title): Data Engineer-Data Platforms-SnowFlake | IBM
+2026-10-08 21:58:21,009 DEBUG   app.linkedin: Skip (title): Commis 1 | FitKhao
+2026-10-08 21:58:21,009 DEBUG   app.linkedin: Skip (title): Agentic Solutions Engineer | BNP Paribas
+2026-10-08 21:58:21,010 DEBUG   app.linkedin: Skip (title): Intermediate App Developer – Production Engineering, Java | UPS
+2026-10-08 21:58:21,010 DEBUG   app.linkedin: Skip (title): Appian Developer | JRD Systems
+2026-10-08 21:58:21,010 DEBUG   app.linkedin: Skip (title): Guidewire Portal Developer | BlitzenX
+2026-10-08 21:58:21,010 DEBUG   app.linkedin: Skip (title): Senior Full-Stack Software Developer - Cyber Security and IAM | A Global Technology Company
+2026-10-08 21:58:21,010 DEBUG   app.linkedin: Skip (title): ServiceNow GRC Developer | Equifax
+2026-10-08 21:58:21,010 DEBUG   app.linkedin: Skip (title): Building Operations, Facilities Services | JLL
+2026-10-08 21:58:21,010 INFO    app.linkedin: Page 1: 25 cards, 2 title matches, 1 not seen before
+2026-10-08 21:58:23,112 INFO    app.linkedin: Page 2: https://www.linkedin.com/jobs/search/?keywords=FastAPI+Developer&f_TPR=r86400&f_E=2%2C4&f_EA=true&sortBy=DD&start=25
+2026-10-08 21:58:36,477 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:58:36,478 DEBUG   app.linkedin: Skip (title): Data Engineer-Data Platforms-AWS | IBM
+2026-10-08 21:58:36,478 DEBUG   app.linkedin: Skip (title): Agentic Solutions Engineer | BNP Paribas
+2026-10-08 21:58:36,478 DEBUG   app.linkedin: Skip (title): Sr Stat Programmer | IQVIA
+2026-10-08 21:58:36,478 DEBUG   app.linkedin: Skip (title): Voice support- International for Chandigarh location only | only freshers | Bachelor's Mandatory | eClerx
+2026-10-08 21:58:36,478 DEBUG   app.linkedin: Skip (title): BDA | Embtel Web Solutions Pvt Ltd
+2026-10-08 21:58:36,478 DEBUG   app.linkedin: Skip (title): Receptionist - Gym Operations | Unnati Anam Consultancy
+2026-10-08 21:58:36,478 DEBUG   app.linkedin: Skip (title): Engineer II- C++ Developer | Aristocrat
+2026-10-08 21:58:36,478 DEBUG   app.linkedin: Skip (title): Oracle Fusion Cloud Security Consultant | Sourcebae
+2026-10-08 21:58:36,478 DEBUG   app.linkedin: Seen before, details skipped: Python Developer - Global Markets | Crisil
+2026-10-08 21:58:36,478 DEBUG   app.linkedin: Skip (title): ADN-Canada NFS-Senior | EY
+2026-10-08 21:58:36,478 DEBUG   app.linkedin: Skip (title): Junior sous chef | Redission blu jaipur
+2026-10-08 21:58:36,479 DEBUG   app.linkedin: Skip (title): System Administrator with Cyber Security Focus | Nippon Data Systems
+2026-10-08 21:58:36,479 DEBUG   app.linkedin: Skip (title): Plc Programmer | Steerway Business Consultants
+2026-10-08 21:58:36,479 DEBUG   app.linkedin: Skip (title): Z4_FS Developer | NTT DATA North America
+2026-10-08 21:58:36,479 DEBUG   app.linkedin: Skip (title): Territory Manager | Burlington English
+2026-10-08 21:58:36,479 DEBUG   app.linkedin: Skip (title): Lead II - Software Engineering- Biztalk | Talent Basket
+2026-10-08 21:58:36,479 DEBUG   app.linkedin: Skip (title): Collection Manager - Two Wheeler Loans - Soft Bkt | SkillLabs
+2026-10-08 21:58:36,479 DEBUG   app.linkedin: Skip (title): Stewards | Evolvia Hospitality LLP
+2026-10-08 21:58:36,479 DEBUG   app.linkedin: Skip (title): Back End Staff Software Engineer (Bangkok based, Relocation provided) | Agoda
+2026-10-08 21:58:36,480 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:58:36,480 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:58:36,480 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:58:36,480 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:58:36,480 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:58:36,480 INFO    app.linkedin: Page 2: 25 cards, 1 title matches, 0 not seen before
+2026-10-08 21:58:38,429 INFO    app.linkedin: Page 3: https://www.linkedin.com/jobs/search/?keywords=FastAPI+Developer&f_TPR=r86400&f_E=2%2C4&f_EA=true&sortBy=DD&start=50
+2026-10-08 21:58:51,590 DEBUG   app.linkedin: Skip (title): Technology Major Problem Manager - Senior Systems Operations Engineer | Wells Fargo
+2026-10-08 21:58:51,590 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:58:51,590 DEBUG   app.linkedin: Skip (title): Data Engineer-Data Platforms-SnowFlake | IBM
+2026-10-08 21:58:51,590 DEBUG   app.linkedin: Skip (title): Sr Stat Programmer | IQVIA
+2026-10-08 21:58:51,590 DEBUG   app.linkedin: Skip (title): Software Development Engineer II(Oracle Integration Cloud Developer) | Motorola Solutions
+2026-10-08 21:58:51,590 DEBUG   app.linkedin: Skip (title): Engineer II- C++ Developer | Aristocrat
+2026-10-08 21:58:51,591 DEBUG   app.linkedin: Skip (title): Engineer II - C++ developer | Aristocrat
+2026-10-08 21:58:51,591 DEBUG   app.linkedin: Skip (title): Engineer II- C++ Developer | Aristocrat
+2026-10-08 21:58:51,591 DEBUG   app.linkedin: Skip (title): Senior Engineer II - C++ developer | Aristocrat
+2026-10-08 21:58:51,591 DEBUG   app.linkedin: Skip (title): SAP Group reporting-Senior | EY
+2026-10-08 21:58:51,591 DEBUG   app.linkedin: Skip (title): System Administrator with Cyber Security Focus | Nippon Data Systems
+2026-10-08 21:58:51,593 DEBUG   app.linkedin: Skip (title): Web Application Administrator | Nippon Data Systems
+2026-10-08 21:58:51,593 DEBUG   app.linkedin: Skip (title): Web Application Administrator | Nippon Data Systems
+2026-10-08 21:58:51,593 DEBUG   app.linkedin: Skip (title): System Administrator | Nippon Data Systems
+2026-10-08 21:58:51,593 DEBUG   app.linkedin: Skip (title): Web Application Administrator | Nippon Data Systems
+2026-10-08 21:58:51,593 DEBUG   app.linkedin: Skip (title): Web Application Administrator | Nippon Data Systems
+2026-10-08 21:58:51,593 DEBUG   app.linkedin: Skip (title): Web Application Administrator | Nippon Data Systems
+2026-10-08 21:58:51,594 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:58:51,594 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:58:51,594 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:58:51,594 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:58:51,594 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:58:51,594 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:58:51,594 DEBUG   app.linkedin: Skip (title): Custom Software Engineering Lead | Accenture in India
+2026-10-08 21:58:51,594 DEBUG   app.linkedin: Skip (title): Tech S And T-Cloud AI Platform Engineer-ISR-Senior-GDSF02 | EY
+2026-10-08 21:58:51,594 INFO    app.linkedin: Page 3: 25 cards, 0 title matches, 0 not seen before
+2026-10-08 21:58:54,185 INFO    app.linkedin: Page 4: https://www.linkedin.com/jobs/search/?keywords=FastAPI+Developer&f_TPR=r86400&f_E=2%2C4&f_EA=true&sortBy=DD&start=75
+2026-10-08 21:59:08,145 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:59:08,145 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:59:08,146 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:59:08,146 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:59:08,146 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:59:08,146 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:59:08,146 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:59:08,146 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:59:08,146 DEBUG   app.linkedin: Skip (title): Data Engineer-Data Platforms-Databricks | IBM
+2026-10-08 21:59:08,146 DEBUG   app.linkedin: Skip (title): Application Developer | Accenture in India
+2026-10-08 21:59:08,146 DEBUG   app.linkedin: Skip (title): Web Developer Analyst | Accenture in India
+2026-10-08 21:59:08,146 DEBUG   app.linkedin: Skip (title): Application Developer | Accenture in India
+2026-10-08 21:59:08,146 DEBUG   app.linkedin: Skip (title): Application Developer | Accenture in India
+2026-10-08 21:59:08,146 DEBUG   app.linkedin: Skip (title): Sr Engineer I - C++ Developer | Aristocrat
+2026-10-08 21:59:08,146 DEBUG   app.linkedin: Skip (title): Technical Lead - C++ Developer | Aristocrat
+2026-10-08 21:59:08,146 DEBUG   app.linkedin: Skip (title): Senior Technical Lead - C++ developer | Aristocrat
+2026-10-08 21:59:08,147 DEBUG   app.linkedin: Skip (title): Engineer II - C++ developer | Aristocrat
+2026-10-08 21:59:08,147 DEBUG   app.linkedin: Seen before, details skipped: Tech Lead - Python Developer | Aristocrat
+2026-10-08 21:59:08,147 DEBUG   app.linkedin: Skip (title): Technical Lead - C++ Developer | Aristocrat
+2026-10-08 21:59:08,147 DEBUG   app.linkedin: Skip (title): Engineer II - C++ developer | Aristocrat
+2026-10-08 21:59:08,147 DEBUG   app.linkedin: Skip (title): Tech Lead - SFDC Developer (CPQ) | Aristocrat
+2026-10-08 21:59:08,147 DEBUG   app.linkedin: Skip (title): Engineer II - C++ developer | Aristocrat
+2026-10-08 21:59:08,147 DEBUG   app.linkedin: Skip (title): Engineer II - C++ developer | Aristocrat
+2026-10-08 21:59:08,147 DEBUG   app.linkedin: Skip (title): Senior Technical Lead - C++ developer | Aristocrat
+2026-10-08 21:59:08,147 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:59:08,147 INFO    app.linkedin: Page 4: 25 cards, 1 title matches, 0 not seen before
+2026-10-08 21:59:10,134 INFO    app.linkedin: Page 5: https://www.linkedin.com/jobs/search/?keywords=FastAPI+Developer&f_TPR=r86400&f_E=2%2C4&f_EA=true&sortBy=DD&start=100
+2026-10-08 21:59:16,804 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:59:16,804 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:59:16,804 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:59:16,804 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:59:16,804 DEBUG   app.linkedin: Skip (title): Custom Software Engineer | Accenture in India
+2026-10-08 21:59:16,804 DEBUG   app.linkedin: Seen before, details skipped: Senior Python Developer | Crisil
+2026-10-08 21:59:16,804 DEBUG   app.linkedin: Seen before, details skipped: Senior Python Developer | Crisil
+2026-10-08 21:59:16,804 INFO    app.linkedin: Page 5: 7 cards, 2 title matches, 0 not seen before
+2026-10-08 21:59:16,810 INFO    app.linkedin: Done: 6 matching jobs out of 107 cards scanned
+2026-10-08 21:59:17,225 INFO    app.browser: Browser closed
+2026-10-08 21:59:17,357 DEBUG   app.matcher: Score 25 (poor): Python Developer - Global Markets | asks 5+ yrs, above your 2.4 (+0 allowed)
+2026-10-08 21:59:17,364 DEBUG   app.matcher: Score 25 (poor): Python Developer - Global Markets | asks 5+ yrs, above your 2.4 (+0 allowed)
+2026-10-08 21:59:17,370 DEBUG   app.matcher: Score 25 (poor): Python Developer - Global Markets | asks 5+ yrs, above your 2.4 (+0 allowed)
+2026-10-08 21:59:17,380 DEBUG   app.matcher: Score 25 (poor): Senior Python Developer | asks 6+ yrs, above your 2.4 (+0 allowed)
+2026-10-08 21:59:17,416 DEBUG   app.matcher: Score 21 (poor): Python +DB | asks 5+ yrs, above your 2.4 (+0 allowed)
+2026-10-08 21:59:17,421 INFO    app.storage: Saved 11 jobs to /home/user/Desktop/job-agent/data/jobs/jobs_20261008_215917.json and /home/user/Desktop/job-agent/data/jobs/jobs_20261008_215917.csv
+2026-10-08 21:59:18,574 INFO    app.notify: Notified about 6 new job(s)
+2026-10-08 21:59:18,577 INFO    app.scan: Scan done in 187 s: 11 matching, 11 new, 6 announced, 5 skipped

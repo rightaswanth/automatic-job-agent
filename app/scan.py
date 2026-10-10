@@ -1,8 +1,8 @@
 """
 One scan: search LinkedIn, score against the resume, persist, notify.
 
-Shared by the command line (``app.main``) and the FastAPI service
-(``app.service``). It prints nothing; the callers decide how to show the result.
+Called by the command line (``app.main``). It prints nothing; the caller decides
+how to show the result.
 """
 from __future__ import annotations
 
@@ -17,9 +17,11 @@ from .linkedin import LinkedInJobSearch
 from .matcher import ResumeProfile, score_jobs
 from .models import Job
 from .notify import notify_new_jobs
-from .storage import load_seen_ids, mark_seen, save_results, upsert_jobs_db
+from .storage import load_seen_ids, mark_seen, save_results
 
 log = logging.getLogger(__name__)
+
+DEFAULT_UNKNOWN_YEARS_MIN_SCORE = 70  # a posting that states no years must score at least this to be announced
 
 
 @dataclass(frozen=True)
@@ -31,8 +33,9 @@ class ScanOptions:
     refresh_seen: bool = False  # open the detail pane for already-seen jobs too
     stop_at_seen_page: bool = False  # stop paging once a page holds only seen jobs (polling mode)
     min_score: int = DEFAULT_MIN_SCORE
+    unknown_years_min_score: int = DEFAULT_UNKNOWN_YEARS_MIN_SCORE  # bar for postings that state no years
     notify: bool = True
-    keep_open: bool = False  # CLI only: wait for Enter before closing a visible browser
+    keep_open: bool = False  # wait for Enter before closing a visible browser
 
 
 @dataclass
@@ -75,13 +78,17 @@ class ScanResult:
         }
 
 
-def announceable(job: Job, min_score: int) -> bool:
-    """New, fits the candidate's experience, and scores enough (unscored = no resume / no details)."""
-    return (
-        job.is_new
-        and job.experience_fit is not False
-        and (job.match_score is None or job.match_score >= min_score)
-    )
+def announceable(job: Job, min_score: int, unknown_years_min_score: int = DEFAULT_UNKNOWN_YEARS_MIN_SCORE) -> bool:
+    """
+    New, fits the candidate's experience, and scores enough. An unscored job (no resume profile) is
+    announced; a posting that states no years must clear ``unknown_years_min_score`` as well.
+    """
+    if not job.is_new or job.experience_fit is False:
+        return False
+    if job.match_score is None:
+        return True
+    bar = max(min_score, unknown_years_min_score) if job.required_years is None else min_score
+    return job.match_score >= bar
 
 
 def scan(options: ScanOptions, criteria_list: list[SearchCriteria], profile: ResumeProfile | None) -> ScanResult:
@@ -107,15 +114,18 @@ def scan(options: ScanOptions, criteria_list: list[SearchCriteria], profile: Res
             input("Press Enter to close the browser...")
 
     jobs = list(jobs_by_id.values())
-    new_count = mark_seen(jobs, options.out_dir)
+    details_missing = {j.job_id for j in jobs if options.fetch_details and not j.description}  # pane failed: retried next scan
+    new_count = mark_seen(jobs, options.out_dir, details_missing)
     if profile:
-        score_jobs([j for j in jobs if j.description], profile)  # only fetched descriptions score meaningfully
+        score_jobs(jobs, profile)  # a job without a description is scored from its title alone; the notes say so
 
     criteria_text = "; ".join(c.describe() for c in criteria_list)
     json_path, csv_path = save_results(jobs, options.out_dir, criteria_text)
-    upsert_jobs_db(jobs, options.out_dir, scan_id=started.isoformat(timespec="seconds"))
 
-    to_announce = [j for j in jobs if announceable(j, options.min_score)]
+    to_announce = [  # a job whose pane failed is announced once its description arrives, not now
+        j for j in jobs
+        if j.job_id not in details_missing and announceable(j, options.min_score, options.unknown_years_min_score)
+    ]
     if to_announce and options.notify:
         notify_new_jobs(to_announce)
     result = ScanResult(

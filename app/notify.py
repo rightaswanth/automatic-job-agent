@@ -22,7 +22,10 @@ _warned_unsupported = False
 
 
 def desktop_notify(title: str, body: str, urgency: str = "normal") -> bool:
-    """Show a desktop popup. Returns False (after logging) when the platform has no notifier."""
+    """
+    Show a desktop popup. Returns False (after logging) when the platform has no notifier.
+    """
+    
     global _warned_unsupported
     system = platform.system()
     try:
@@ -65,7 +68,9 @@ def _job_line(job: Job) -> str:
 
 
 def notify_new_jobs(jobs: list[Job]) -> int:
-    """Pop a notification for each job in ``jobs`` (or one summary when there are many). Returns how many were announced."""
+    """
+    Pop a notification for each job in ``jobs`` (or one summary when there are many). Returns how many were announced.
+    """
     if not jobs:
         return 0
     ranked = sorted(jobs, key=lambda j: (j.match_score if j.match_score is not None else -1), reverse=True)

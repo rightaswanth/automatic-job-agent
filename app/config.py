@@ -28,7 +28,9 @@ DEFAULT_MIN_SCORE = 50  # notify only for jobs scoring at least this (0-100) aga
 
 
 class ExperienceLevel(str, Enum):
-    """Values of LinkedIn's ``f_E`` filter (the "Experience level" dropdown)."""
+    """
+    Values of LinkedIn's ``f_E`` filter (the "Experience level" dropdown).
+    """
 
     INTERNSHIP = "1"
     ENTRY_LEVEL = "2"
@@ -39,7 +41,9 @@ class ExperienceLevel(str, Enum):
 
 
 class PostedWithin(str, Enum):
-    """Values of LinkedIn's ``f_TPR`` filter (the "Date posted" dropdown)."""
+    """
+    Values of LinkedIn's ``f_TPR`` filter (the "Date posted" dropdown).
+    """
 
     ANY_TIME = ""
     PAST_24_HOURS = "r86400"
@@ -54,7 +58,8 @@ class SortBy(str, Enum):
 
 @dataclass(frozen=True)
 class SearchCriteria:
-    """What to search for. Defaults match the current target:
+    """
+    What to search for. Defaults match the current target:
 
     Python Developer, posted in the past 24 hours, Entry level + Senior level,
     under 10 applicants.

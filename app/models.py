@@ -56,14 +56,17 @@ class Job:
 
 
 def clean_title(title: str | None) -> str:
-    """LinkedIn appends ' with verification' to the accessible title of verified jobs."""
+    """
+    LinkedIn appends ' with verification' to the accessible title of verified jobs.
+    """
     if not title:
         return ""
     return _VERIFICATION_SUFFIX.sub("", title).strip()
 
 
 def parse_posted(text: str | None, now: datetime | None = None) -> tuple[str | None, str | None]:
-    """Return (posted_text, posted_at_iso) from text such as '25 minutes ago Within the past 24 hours'.
+    """
+    Return (posted_text, posted_at_iso) from text such as '25 minutes ago Within the past 24 hours'.
 
     Returns (None, None) when the text holds no relative time (e.g. a card footer
     that only says 'Viewed'), so the caller can fill it from the detail pane.

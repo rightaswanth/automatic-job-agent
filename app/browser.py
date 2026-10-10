@@ -1,4 +1,6 @@
-"""Launch Chromium on the persistent (logged-in) LinkedIn profile."""
+"""
+Launch Chromium on the persistent (logged-in) LinkedIn profile.
+"""
 from __future__ import annotations
 
 import logging

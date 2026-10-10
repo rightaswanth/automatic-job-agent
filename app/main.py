@@ -3,10 +3,11 @@ Find LinkedIn jobs that match your criteria and your resume, and alert you on th
 
 Default searches: "Python Developer" and "FastAPI Developer", posted in the past
 24 hours, Entry level and Senior (Mid-Senior) level, under 10 applicants, title
-mentioning python/fastapi/django. Every job whose description was fetched is
-scored 0-100 against resume.json; jobs not seen in earlier runs that score at
-least --min-score raise a desktop notification. Results are printed and saved
-under data/jobs/ as JSON and CSV.
+mentioning python/fastapi/django. Every job is scored 0-100 against resume.json
+(from its title alone when the detail pane did not load); jobs not seen in earlier
+runs that fit your experience and score at least --min-score raise a desktop
+notification (--unknown-years-min-score when the posting states no years).
+Results are printed and saved under data/jobs/ as JSON and CSV.
 
 Examples:
     python -m app.main --keep-open           # first time: sign in to LinkedIn in the window, then rerun
@@ -14,7 +15,6 @@ Examples:
     python -m app.main --watch --headless    # keep checking every 5 minutes, no browser window
     python -m app.main --watch --interval 600 --min-score 60
     python -m app.main --keywords "Django Developer" --title-keyword django
-    uvicorn app.api:app --port 8000          # web dashboard + JSON API instead (see README)
 """
 from __future__ import annotations
 
@@ -42,7 +42,7 @@ from .linkedin import NotLoggedInError, SearchPageChangedError
 from .matcher import ResumeProfile, ResumeProfileError
 from .notify import desktop_notify
 from .report import configure_logging, print_next_check, print_report, print_scan_start
-from .scan import ScanOptions, ScanResult, scan
+from .scan import DEFAULT_UNKNOWN_YEARS_MIN_SCORE, ScanOptions, ScanResult, scan
 
 log = logging.getLogger("job_agent")
 
@@ -81,6 +81,10 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         "--years-tolerance", type=float, default=None, metavar="YEARS",
         help="skip jobs asking for more than your experience plus this many years (default: years_tolerance in resume.json, 1)",
     )
+    matching.add_argument(
+        "--unknown-years-min-score", type=int, default=DEFAULT_UNKNOWN_YEARS_MIN_SCORE, metavar="SCORE",
+        help="a job that states no years of experience must score at least this to be notified (default: %(default)s)",
+    )
     matching.add_argument("--no-notify", action="store_true", help="never show desktop notifications")
 
     running = parser.add_argument_group("running")
@@ -95,7 +99,9 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 
 
 def build_criteria(args: argparse.Namespace) -> list[SearchCriteria]:
-    """One SearchCriteria per keyword phrase; everything else is shared."""
+    """
+    One SearchCriteria per keyword phrase; everything else is shared.
+    """
     if args.any_title:
         title_terms: tuple[str, ...] = ()
     elif args.title_keywords:
@@ -138,6 +144,7 @@ def run_once(
         refresh_seen=args.refresh_seen,
         stop_at_seen_page=watching,  # polling: older pages are already known
         min_score=args.min_score,
+        unknown_years_min_score=args.unknown_years_min_score,
         notify=not args.no_notify,
         keep_open=args.keep_open and not watching,
     )
